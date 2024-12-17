@@ -4,116 +4,116 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 Route::get('/', function () {
-    return view('frontend/index');
+    return view('index');
 })->name('home');
 Route::get('/getIndex', function () {
     // dd(auth()->user());
-    return view('frontend/index');
+    return view('index');
 })->name('getIndex');
 Route::get('/shop', function () {
-    return view('frontend/shop');
+    return view('shop');
 })->name('shop');
 
 // Route::get('/shop-grid', function () {
-//     return view('frontend/shop-grid');
+//     return view('shop-grid');
 // })->name('shop-grid');
 
-Route::view('shop-grid', 'frontend/shop')->name('shop-grid');
+Route::view('shop-grid', 'shop')->name('shop-grid');
 
 Route::get('/shop-left-sidebar', function () {
-    return view('frontend/shop-left-sidebar');
+    return view('shop-left-sidebar');
 })->name('shop-left-sidebar');
 Route::get('/shop-right-sidebar', function () {
-    return view('frontend/shop-right-sidebar');
+    return view('shop-right-sidebar');
 })->name('shop-right-sidebar');
 Route::get('/product-details', function () {
-    return view('frontend/product-details');
+    return view('product-details');
 })->name('product-details');
 Route::get('/cart', function () {
-    return view('frontend/cart');
+    return view('cart');
 })->name('cart');
 Route::get('/wishlist', function () {
-    return view('frontend/wishlist');
+    return view('wishlist');
 })->name('wishlist');
 Route::get('/checkout', function () {
-    return view('frontend/checkout');
+    return view('checkout');
 })->name('checkout');
 Route::get('/order-tracking', function () {
-    return view('frontend/order-tracking');
+    return view('order-tracking');
 })->name('order-tracking');
 
 Route::get('/account', function () {
-    return view('frontend/account');
+    return view('account');
 })->name('account');
 Route::get('/login', function () {
-    return view('frontend/login');
+    return view('login');
 })->name('login');
 Route::get('/register', function () {
-    return view('frontend/register');
+    return view('register');
 })->name('register');
 Route::get('/blog', function () {
-    return view('frontend/blog');
+    return view('blog');
 })->name('blog');
 Route::get('/blog-grid', function () {
-    return view('frontend/blog-grid');
+    return view('blog-grid');
 })->name('blog-grid');
 Route::get('/blog-left-sidebar', function () {
-    return view('frontend/blog-left-sidebar');
+    return view('blog-left-sidebar');
 })->name('blog-left-sidebar');
 Route::get('/blog-right-sidebar', function () {
-    return view('frontend/blog-right-sidebar');
+    return view('blog-right-sidebar');
 })->name('blog-right-sidebar');
 Route::get('/blog-details', function () {
-    return view('frontend/blog-details');
+    return view('blog-details');
 })->name('blog-details');
 Route::get('/about', function () {
-    return view('frontend/about');
+    return view('about');
 })->name('about');
 Route::get('/service', function () {
-    return view('frontend/service');
+    return view('service');
 })->name('service');
 Route::get('/service-details', function () {
-    return view('frontend/service-details');
+    return view('service-details');
 })->name('service-details');
 Route::get('/portfolio', function () {
-    return view('frontend/portfolio');
+    return view('portfolio');
 })->name('portfolio');
 Route::get('/portfolio-2', function () {
-    return view('frontend/portfolio-2');
+    return view('portfolio-2');
 })->name('portfolio-2');
 Route::get('/portfolio-details', function () {
-    return view('frontend/portfolio-details');
+    return view('portfolio-details');
 })->name('portfolio-details');
 Route::get('/team', function () {
-    return view('frontend/team');
+    return view('team');
 })->name('team');
 Route::get('/team-details', function () {
-    return view('frontend/team-details');
+    return view('team-details');
 })->name('team-details');
 Route::get('/faq', function () {
-    return view('frontend/faq');
+    return view('faq');
 })->name('faq');
 Route::get('/history', function () {
-    return view('frontend/history');
+    return view('history');
 })->name('history');
 Route::get('/contact', function () {
-    return view('frontend/contact');
+    return view('contact');
 })->name('contact');
 // Route::get('/home', function () {
-//     return view('frontend/home');
+//     return view('home');
 // })->name('home');
 Route::get('/404', function () {
-    return view('frontend/404');
+    return view('404');
 })->name('404');
 Route::get('/coming-soon', function () {
-    return view('frontend/coming-soon');
+    return view('coming-soon');
 })->name('coming-soon');
 Route::get('/locations', function () {
-    return view('frontend/locations');
+    return view('locations');
 })->name('locations');
 
 Route::post('/sign-in', function () {
-    return view('frontend/locations');
+    return view('locations');
 })->name('signIn');
 
 

@@ -14,7 +14,7 @@ class LoginController extends Controller
      */
     public function showRegistration()
     {
-        return view('frontend.register');
+        return view('register');
     }
 
     public function login(Request $request)
