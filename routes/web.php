@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductsController;
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -124,7 +125,12 @@ Route::get('logout', function(){
     return back();
 })->name('logout');
 
-
+Route::resource('products', ProductsController::class);
+Route::get('createproduct', [ProductsController::class, 'createproduct'])->name('createproduct');
+Route::post('store-product', [ProductsController::class, 'store'])->name('store-product');
+Route::get('products', [ProductsController::class, 'index'])->name('products');
+Route::get('delete-product', [ProductsController::class, 'delete'])->name('delete-product');
+Route::get('edit-product', [ProductsController::class, 'edit'])->name('edit-product');
 // Route::view('locations', 'locations')->name('locations');
 // Route::view('about', 'about')->name('About');
 // Route::view('service', 'service')->name('Services');

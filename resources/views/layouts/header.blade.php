@@ -62,7 +62,7 @@
                     <div class="site-logo-wrap">
                         <div class="site-logo">
                             <a href="{{route('getIndex')}}" class="position-relative">
-                                <img src="{{asset('img/logo.png')."?skjdh"}}" height="140" alt="Logo" class="position-absolute">
+                                <img src="{{asset('img/logo.png')}}" height="140" alt="Logo" class="position-absolute">
                             </a>
                         </div>
                     </div>

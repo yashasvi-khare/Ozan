@@ -123,7 +123,8 @@
                                                 <i class="fa fa-play"></i>
                                             </a>
                                         </div>
-                                        <h6 class="slide-sub-title animated"><img src="img/icons/icon-img/1.png" alt="#"> 100% genuine Products</h6>
+                                        <h6 class="slide-sub-title animated">
+                                            <img src="{{asset('img/icons/halal.png')}}" style="width:100px;" alt="#"></h6>
                                         <h1 class="slide-title animated ">Tasty & Healthy <br> Organic Food</h1>
                                         <div class="slide-brief animated d-none">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>

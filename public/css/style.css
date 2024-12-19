@@ -4421,7 +4421,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* Menu Icon */
 .menu-icon > a {
   position: relative; }
-  .menu-icon > a::before {
+ /* .menu-icon > a::before {
     content: "\f067";
     font-size: 8px;
     position: absolute;
