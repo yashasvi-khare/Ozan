@@ -4,10 +4,6 @@
 @section('main-container')
 
 
-
-
-
-
     <!-- WISHLIST AREA START -->
     <div class="liton__wishlist-area pb-70">
         <div class="container">

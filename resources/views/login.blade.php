@@ -137,7 +137,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="account-login-inner">
-                        <form action="{{ route('login') }}" method="POST" class="ltn__form-box contact-form-box">
+                        <form action="{{ route('sign-in') }}" method="POST" class="ltn__form-box contact-form-box">
                             @csrf
                             <input type="text" name="email" placeholder="Email*">
                             <input type="password" name="password" placeholder="Password*">

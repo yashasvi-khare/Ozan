@@ -137,7 +137,7 @@
             <div class="row">table o
                 <div class="col-lg-6 offset-lg-3">
                     <div class="account-login-inner">
-                        <form action="{{ route('signIn') }}" method="POST"  class="ltn__form-box contact-form-box">
+                        <form action="{{ route('signUp') }}" method="POST"  class="ltn__form-box contact-form-box">
                             @csrf
                             <input type="text" name="name" placeholder="First Name">
                             <input type="text" name="email" placeholder="Email*">
