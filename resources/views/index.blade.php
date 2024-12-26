@@ -8,6 +8,10 @@
             height:270px;
         }
     </style>
+
+    @php 
+        $showPrice = App\Models\Setting::where('name','price_visibility')->first('value')?->value;
+    @endphp
     <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
 
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
@@ -159,7 +163,10 @@
                                     </div>
                                 </div>
                                 <div class="slide-item-img slide-img-left">
-                                    <img src="img/slider/21.png" alt="javascript:void(0)">
+                                @php 
+                                    $dealImg = App\Models\Setting::where('name','banner_img')->first('value')?->value;
+                                @endphp
+                                    <img src="{{$dealImg? asset('storage/'.$dealImg): 'img/slider/21.png'}}" alt="javascript:void(0)">
                                 </div>
                             </div>
                         </div>
@@ -259,7 +266,10 @@
                                                     </ul>
                                                 </div>
                                                 <h2 class="product-title"><a href="javascript:void(0)">Carrots Group Scal</a></h2>
-                                                <div class="product-price">
+                                                <div class="price_visibility">
+                                                @php 
+                $dealImg = App\Models\Setting::where('name','price_visibility')->first('value')?->value;
+                @endphp
                                                     <span>$32.00</span>
                                                     <del>$46.00</del>
                                                 </div>
@@ -298,15 +308,17 @@
                                                         <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
                                                         <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
                                                         <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star-half-alt"></i></a></li>
+                                                        <li><a href="javascript:void(0)"><i class="fas fa-star-half-alt"></i></a></li>s
                                                         <li><a href="javascript:void(0)"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
                                                 <h2 class="product-title"><a href="javascript:void(0)">Kiwis</a></h2>
+                                                @if($showPrice)
                                                 <div class="product-price">
                                                     <span>$78.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -398,6 +410,7 @@
                                                 </div>
                                                 <h2 class="product-title"><a href="javascript:void(0)">Mushrooms</a></h2>
                                                 <div class="product-price">
+
                                                     <span>$150.00</span>
                                                     <del>$180.00</del>
                                                 </div>
@@ -1733,14 +1746,19 @@
     <div class="ltn__call-to-action-area ltn__call-to-action-4 section-bg-1 pt-110 pb-120">
         <div class="container">
             <div class="row">
+                @php 
+                $dealImg = App\Models\Setting::where('name','hot_deal_img')->first('value')?->value;
+                @endphp
                 <div class="col-lg-5">
-                    <img src="img/banner/11.png" alt="javascript:void(0)">
+                    <img src="{{$dealImg??'img/banner/11.png'}}" alt="javascript:void(0)">
                 </div>
                 <div class="col-lg-7">
                     <div class="call-to-action-inner call-to-action-inner-4 text-color-white--- text-center---">
                         <div class="section-title-area ltn__section-title-2 text-center---">
                             <h6 class="ltn__secondary-color">Todays Hot Deals</h6>
-                            <h1 class="section-title">Original Stock Honey <br>  Combo Package</h1>
+                            <h1 class="section-title">
+                                {{App\Models\Setting::where('name','hot_deal_text')->first('value')?->value??'Original Stock Honey'}}    
+                            <br>  Combo Package</h1>
                         </div>
                         <div class="ltn__countdown ltn__countdown-3 bg-white--" data-countdown="2024/12/28"></div>
                         <div class="btn-wrapper animated">

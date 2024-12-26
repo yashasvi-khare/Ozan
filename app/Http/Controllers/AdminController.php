@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Admin;
+use App\Models\Setting;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -137,10 +138,47 @@ class AdminController extends Controller
         return view('Admin.settings');
     }
 
-    public function updateSettings(Request $request)
-    {
-        dd($request->all());
-    }
+ 
+        public function updateSettings(Request $request)
+        {
+           
+            // dd($request->all());
+            if ($request->hasFile('banner_img')) {
+                $path = $request->file('banner_img')->store('images', 'public');
+                 Setting::where('name', 'banner_img')->update([
+                    'value' => $path 
+                 ]);
+             }
+          
+             if ($request->hasFile('hot_deal_image')) {
+                 $path = $request->file('hot_deal_image')->store('images', 'public');
+                 Setting::where('name', 'hot_deal_image')->update([
+                    'value' => $path 
+                 ]);
+             }
+
+            if($request->price_visibility)
+            {
+                Setting::where('name', 'price_visibility')->update([
+                    'value' => $request->price_visibility
+                ]);
+            } else {
+                Setting::where('name', 'price_visibility')->update([
+                    'value' => null
+                ]);
+            }
+
+            if($request->hot_deal_text)
+            {
+                Setting::where('name', 'hot_deal_text')->update([
+                    'value' => $request->hot_deal_text
+                ]);
+            }
+       
+         
+            return back()->with('success', 'Product updated successfully.');
+        }
+         
     
     public function update(Request $request, $id)
     {

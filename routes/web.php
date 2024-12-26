@@ -54,7 +54,7 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
 
 
         Route::post('/import-product', [ProductsController::class, 'import'])->name('products.import');
-
+        Route::post('/update-settings/{id}', [AdminController::class, 'updateSettings']);
         // Miss mahotarma ji
         //isko admin waale section me rkhna tha
         // file nahi route
