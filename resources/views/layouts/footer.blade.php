@@ -10,7 +10,7 @@
                                     <img src="{{asset('img/logo.png')}}" alt="Logo">
                                 </div>
                             </div>
-                            <p>Lorem Ipsum is simply dummy text of the and typesetting industry. Lorem Ipsum is dummy text of the printing.</p>
+                            <p>Thank you for choosing OzanMarket. We look forward to welcoming you and ensuring that every visit is a satisfying and unique experience!</p>
                             <div class="footer-address">
                                 <ul>
                                     <li>

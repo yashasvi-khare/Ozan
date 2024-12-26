@@ -5235,7 +5235,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   .ltn__utilize {
     width: 300px; }
   .ltn__utilize.ltn__utilize-mobile-menu {
-    padding: 50px 20px; } }
+    padding: 0px 20px; } }
 
 .ltn__utilize-menu > ul {
   margin: 0;
@@ -5387,8 +5387,8 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
+  /* margin-bottom: 25px;
+  padding-bottom: 15px; */
   border-bottom: 1px solid #eee; }
   .ltn__utilize-menu-head .ltn__utilize-menu-title {
     font-weight: 700; }
@@ -5397,6 +5397,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     font-size: 30px;
     padding: 0 15px; }
 
+.ltn__utilize-menu-search-form {
+    display: none;
+}
 .ltn__utilize-buttons {
   border-top: 1px solid var(--border-color-1);
   padding: 5px 0px 20px;
@@ -5555,7 +5558,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     flex: 0 0 100%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center; }
+    /* justify-content: center; */
+    position: absolute;
+    right: 0;
+ }
   .ltn__header-3 .top-bar-right {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
@@ -6498,7 +6504,9 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     font-size: 24px; }
   .ltn__slide-item-2 {
     height: auto;
-    padding-top: 300px; }
+    padding-top: 110px; }
+    .site-logo img.position-absolute {
+        left: 10px; bottom: -60px; }
     .ltn__slide-item-2 .slide-title {
       font-size: 30px; }
     .ltn__slide-item-2 .slide-brief {
@@ -6508,7 +6516,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   .ltn__product-pointer {
     display: none; }
   .ltn__slide-item-6 .slide-title {
-    font-size: 30px; } }
+    font-size: 30px; } .ltn__utilize-menu-head .site-logo img{height: 60%!important;} }
 
 /* ----------------------------------------------------
     END
@@ -6596,7 +6604,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 
 .ltn__product-item:hover .product-hover-action {
   top: 50%;
-  opacity: 1;
+  opacity: 0;/*1*/
   visibility: visible; }
 
 .product-hover-action ul {

@@ -61,7 +61,7 @@
                 <div class="col">
                     <div class="site-logo-wrap">
                         <div class="site-logo">
-                            <a href="{{route('getIndex')}}" class="position-relative">
+                            <a href="{{url('/')}}" class="position-relative">
                                 <img src="{{asset('img/logo.png')}}" height="140" alt="Logo" class="position-absolute">
                             </a>
                         </div>
@@ -73,8 +73,9 @@
                             <div class="ltn__main-menu">
                                 <ul>
                                     <li class="menu-icon"><a href="{{route('getIndex')}}">Home</a></li>
+                                    <li class="menu-icon"><a target="_blank" href="/ozan-cafe/public">Café</a></li>
                                     <li class="menu-icon"><a href="{{route('about')}}">About</a></li>
-                                    <li class="menu-icon"><a href="{{route('shop-left-sidebar')}}">Shop</a></li>
+                                    <li class="menu-icon d-none"><a href="{{route('shop-left-sidebar')}}">Shop</a></li>
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
                             </div>
@@ -82,47 +83,6 @@
                     </div>
                 </div>
                 <div class="ltn__header-options ltn__header-options-2">
-                    <!-- header-search-1 -->
-                    <div class="header-search-wrap">
-                        <div class="header-search-1">
-                            <div class="search-icon">
-                                <i class="icon-search for-search-show"></i>
-                                <i class="icon-cancel  for-search-close"></i>
-                            </div>
-                        </div>
-                        <div class="header-search-1-form">
-                            <form id="#" method="get" action="#">
-                                <input type="text" name="search" value="" placeholder="Search here..." />
-                                <button type="submit">
-                                    <span><i class="icon-search"></i></span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- user-menu -->
-                    <div class="ltn__drop-menu user-menu">
-                        <ul>
-                            <li>
-                                <a href="#"><i class="icon-user"></i></a>
-                                <ul>
-                                    @if(auth()->user()==null)
-                                    <li><a href="#">Sign in</a></li>
-                                    <li><a href="{{route('register')}}">Register</a></li>
-                                    @else
-                                    <li><a href="{{route('logout')}}">Log-out</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- mini-cart -->
-                    <div class="mini-cart-icon d-none">
-                        <a href="#ltn__utilize-cart-menu" class="ltn__utilize-toggle">
-                            <i class="icon-shopping-cart"></i>
-                            <sup>2</sup>
-                        </a>
-                    </div>
-                    <!-- mini-cart -->
                     <!-- Mobile Menu Button -->
                     <div class="mobile-menu-toggle d-xl-none">
                         <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">

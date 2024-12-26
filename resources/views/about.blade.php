@@ -182,7 +182,7 @@
                             <h3><a href="service-details.html">All Kind Brand</a></h3>
                         </div>
                         <div class="ltn__feature-info">
-                            <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
+                            <p>By offering a wide range, Ozan market aims to provide convenience, variety, and value for every shopper.</p>
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
                             <h3><a href="{{route('service-details')}}">Curated Products</a></h3>
                         </div>
                         <div class="ltn__feature-info">
-                            <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
+                            <p>These handpicked collections focus on quality, uniqueness, and relevance, ensuring customers find the best products.</p>
                         </div>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                             <h3><a href="service-details.html">Pesticide Free Goods</a></h3>
                         </div>
                         <div class="ltn__feature-info">
-                            <p>Lorem ipsum dolor sit ame it, consectetur adipisicing elit, sed do eiusmod te mp or incididunt ut labore.</p>
+                            <p>Ozan market ensures customers receive safe, healthy, and environmentally friendly products.</p>
                         </div>
                     </div>
                 </div>
