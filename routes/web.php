@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UserController; 
+use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -13,12 +13,12 @@ Route::get('/getIndex', function () {
     return view('index');
 })->name('getIndex');
 Route::get('/shop', function () {
-    return view('shop');
+    return view('shop-left-sidebar');
 })->name('shop');
 
 // Admin Panel
 
-// Aage se is group k routes aise use honge `admin.dashboard` 
+// Aage se is group k routes aise use honge `admin.dashboard`
 // lekin login ho chuka hai pahle hi isliye dashboard
 Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
     Route::controller(AdminController::class)->group(function(){
@@ -32,7 +32,7 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
             }
             else{
                 return redirect()->route('admin.login_view');
-            } 
+            }
         })->name('dashboard');
         Route::get('login', function(){
             return view('admin.login');
@@ -51,17 +51,17 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
         Route::post('/update-settings', [AdminController::class, 'updateSettings'])->name('update-settings');
 
         Route::post('/products/{id}/update', [AdminController::class, 'update'])->name('products.update');
-       
+
 
         Route::post('/import-product', [ProductsController::class, 'import'])->name('products.import');
 
-        // Miss mahotarma ji 
+        // Miss mahotarma ji
         //isko admin waale section me rkhna tha
         // file nahi route
         Route::get('admin-edit', [AdminController::class, 'admin-edit'])->name('admin-edit');
-        
 
-        
+
+
     // alag routes banane k liye above line copy paste
  // url() method me aage ka parameter dete hain
         // route('') me last ka parameter
@@ -79,9 +79,6 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
 
 Route::view('shop-grid', 'shop')->name('shop-grid');
 
-Route::get('/shop-left-sidebar', function () {
-    return view('shop-left-sidebar');
-})->name('shop-left-sidebar');
 Route::get('/shop-right-sidebar', function () {
     return view('shop-right-sidebar');
 })->name('shop-right-sidebar');
@@ -191,9 +188,9 @@ Route::get('edit-product', [ProductsController::class, 'edit'])->name('edit-prod
 
 
 Route::get('/file-import',[UserController::class,
-            'importView'])->name('import-view'); 
+            'importView'])->name('import-view');
     Route::post('/import',[UserController::class,
-            'import'])->name('import'); 
+            'import'])->name('import');
     Route::get('/export-users',[UserController::class,
             'exportUsers'])->name('export-users');
 
