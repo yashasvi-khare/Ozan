@@ -124,11 +124,6 @@
             </div>
         </div>
     </div>
-    
-    <!-- BREADCRUMB AREA END -->
-     
-    <a class="btn btn-success position-absolute" style="right:10px;" href="{{route('createproduct')}}" >Create Product</a>
-
 
     <!-- PRODUCT DETAILS AREA START -->
     <div class="ltn__product-area ltn__product-gutter">
