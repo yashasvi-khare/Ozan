@@ -1771,7 +1771,15 @@
                     <div class="call-to-action-inner call-to-action-inner-4 text-color-white--- text-center---">
                         <div class="section-title-area ltn__section-title-2 text-center---">
                             <h6 class="ltn__secondary-color">Todays Hot Deals</h6>
-                            <h1 class="section-title">Original Stock Honey <br>  Combo Package</h1>
+                            <h1 class="section-title">
+
+                            @php
+                                $text = App\Models\Setting::where('name', 'hot_deal_text')->first('value')->value;
+                            @endphp
+                                {{ $text ?? 'Original Stock Honey' }}
+                                
+                            <br> 
+                            Combo Package</h1>
                         </div>
                         <div class="ltn__countdown ltn__countdown-3 bg-white--" data-countdown="2024/12/28"></div>
                         <div class="btn-wrapper animated">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ProductImport;
 
 
 class ProductsController extends Controller
@@ -13,49 +15,6 @@ class ProductsController extends Controller
     {
         $products = Product::all();
         return view('products.index', compact('products'));
-    }
-
-    public function createproduct()
-    {
-        return view('products.createproduct');
-    }
-
-    public function store(Request $request)
-    {
-        // $request->validate([
-        //     'title' => 'required|string|max:255',
-        //     'picture' => 'required|image|max:1024',
-        //     'description' => 'required|string|max:255',
-        //     'price' => 'required|integer',
-        //     'quantity' => 'required|integer',
-        //     'category' => 'required|integer',
-        //     'discount' => 'required|integer',
-        // ]);
-        $path = $request->file('image')->store('images', 'public');
-        // dd([
-        //     'title' => $request->title,
-        //     'picture' => $path,
-        //     'description' => $request->description,
-        //     'price' => $request->price,
-        //     'quantity' => $request->quantity,
-        //     'category' => $request->category,
-        //     'discount' => $request->discount,
-        // ]);
-        try {
-            Product::create([
-                'title' => $request->title,
-                'picture' => $path,
-                'description' => $request->description,
-                'price' => $request->price,
-                'quantity' => $request->quantity,
-                'category' => $request->category,
-                'discount' => $request->discount,
-            ]);
-        } catch (\Throwable $th) {
-            dd($th->getMessage());
-        }
-        
-        return redirect()->route('products')->with('success', 'Product created successfully.');
     }
 
     public function show(Product $product)
@@ -90,6 +49,21 @@ class ProductsController extends Controller
         $product->delete();
         return redirect()->route('index')->with('success', 'Product deleted successfully.');
     }
+    public function import(Request $request)
+    {
+        // dd($request->all());
+        // Validate the uploaded file
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv',
+        ]);
+
+        // Import the file
+        Excel::import(new ProductImport($request->category), $request->file('file'));
+
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Data imported successfully!');
+    }
+
 }
 
 

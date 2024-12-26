@@ -106,7 +106,7 @@
                                 <a href="#"><i class="icon-user"></i></a>
                                 <ul>
                                     @if(auth()->user()==null)
-                                    <li><a href="{{route('login')}}">Sign in</a></li>
+                                    <li><a href="#">Sign in</a></li>
                                     <li><a href="{{route('register')}}">Register</a></li>
                                     @else
                                     <li><a href="{{route('logout')}}">Log-out</a></li>

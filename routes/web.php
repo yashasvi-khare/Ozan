@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UserController; 
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -21,40 +22,59 @@ Route::get('/shop', function () {
 // lekin login ho chuka hai pahle hi isliye dashboard
 Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
     Route::controller(AdminController::class)->group(function(){
-        Route::get('/', 'info'); // kewal admin likhne par ye call hoga admin. lagne pr neeche k routes
+        //Route::get('/', function(){})->name('index'); // kewal admin likhne par ye call hoga admin. lagne pr neeche k routes
         // thiik h fir continue karo
-        Route::get('dashboard', 'index')->name('dashboard');
-        // alag routes banane k liye above line copy paste
-        // url() method me aage ka parameter dete hain
+        Route::get('dashboard', function(){
+            if(Auth::user())
+            {
+                // login already rahega tabhi index page par le jana hai wrna login first
+                return view('admin.index');
+            }
+            else{
+                return redirect()->route('admin.login_view');
+            } 
+        })->name('dashboard');
+        Route::get('login', function(){
+            return view('admin.login');
+        })->name('login_view');
+        Route::get('register', function(){
+            return view('admin.authentication-register');
+        })->name('register_view');
+        Route::post('register', [AdminController::class, 'register'])->name('register');
+        Route::post('login', [AdminController::class, 'login'])->name('login');
+        Route::get('products', [AdminController::class, 'products'])->name('products');
+        Route::get('createproduct', [AdminController::class, 'createproduct'])->name('createproduct');
+        Route::post('store-product', [AdminController::class, 'store'])->name('store-product');
+
+        Route::get('/products/{id}/edit', [AdminController::class, 'edit'])->name('products.edit');
+        Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
+        Route::post('/update-settings', [AdminController::class, 'updateSettings'])->name('update-settings');
+
+        Route::post('/products/{id}/update', [AdminController::class, 'update'])->name('products.update');
+       
+
+        Route::post('/import-product', [ProductsController::class, 'import'])->name('products.import');
+
+        // Miss mahotarma ji 
+        //isko admin waale section me rkhna tha
+        // file nahi route
+        Route::get('admin-edit', [AdminController::class, 'admin-edit'])->name('admin-edit');
+        
+
+        
+    // alag routes banane k liye above line copy paste
+ // url() method me aage ka parameter dete hain
         // route('') me last ka parameter
         // upar wale route ko agar url() se access karna hai to url('dashboard') iss case me dono hi same hain to frk nhi pta lagega
         // Route::get('dashboard', 'index')->name('dashboard');
         // kewal route fir comma, fir controler k under ka function `index`;
     });
 });
-// serve karke chalane me yahi problem aati hai
 
-// Route::view('locations', 'locations')->name('locations');
-// Route::view('about', 'about')->name('About');
-// Route::view('service', 'service')->name('Services');
-// Route::view('service-details', 'service-details')->name('Service Details');
-// Route::view('portfolio', 'portfolio')->name('portfolio');
-// Route::view('portfolio-details', 'portfolio-details')->name('Portfolio Details');
-// Route::view('Portfolio-2', 'Portfolio-2')->name('Portfolio - 02');
-// Route::view('team', 'team')->name('Team');
-// Route::view('team-details', 'team-details')->name('Team Details');
-// Route::view('faq', 'faq')->name('FAQ');
-// Route::view('history', 'history')->name('History');
-// Route::view('locations', 'locations')->name('locations');
-// Route::view('contact', 'contact')->name('contact');
-// Route::view('home', 'home')->name('home');
-// Route::view('coming-soon', 'coming-soon')->name('coming-soon');
-// Route::view('account', 'account')->name('account');
-// Route::view('wishlist', 'wishlist')->name('Wish List');
-// Route::view('order-tracking', 'order-tracking')->name('order-tracking');
-// // Route::view('getIndex2', 'getIndex2')->name('getIndex2');
 
-// Route::get('/admin/getIndex', [LoginController::class, 'getIndex'])->name('admin.getIndex');
+
+
+
 
 
 Route::view('shop-grid', 'shop')->name('shop-grid');
@@ -164,10 +184,17 @@ Route::get('logout', function(){
     return back();
 })->name('logout');
 
-Route::resource('products', ProductsController::class);
-Route::get('createproduct', [ProductsController::class, 'createproduct'])->name('createproduct');
-Route::post('store-product', [ProductsController::class, 'store'])->name('store-product');
+// Route::resource('products', ProductsController::class);
 Route::get('products', [ProductsController::class, 'index'])->name('products');
 Route::get('delete-product', [ProductsController::class, 'delete'])->name('delete-product');
 Route::get('edit-product', [ProductsController::class, 'edit'])->name('edit-product');
+
+
+Route::get('/file-import',[UserController::class,
+            'importView'])->name('import-view'); 
+    Route::post('/import',[UserController::class,
+            'import'])->name('import'); 
+    Route::get('/export-users',[UserController::class,
+            'exportUsers'])->name('export-users');
+
 

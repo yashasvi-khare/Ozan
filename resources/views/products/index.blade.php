@@ -42,4 +42,6 @@
         </tbody>
     </table>
 </div>
+    <a class="btn btn-success position-absolute" style="right:10px;" href="{{route('createproduct')}}" >Create Product</a>
+
 @endsection
