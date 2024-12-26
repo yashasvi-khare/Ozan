@@ -93,7 +93,7 @@
                 <ul>
                     <li><a href="{{url('/')}}">Home</a></li>
                     <li><a href="{{route('about')}}">About</a></li>
-                    <li><a href="{{route('shop-left-sidebar')}}">Shop</a></li>
+                    <li><a href="/ozan-cafe/public" target="_blank"> Café </a></li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                 </ul>
             </div>
