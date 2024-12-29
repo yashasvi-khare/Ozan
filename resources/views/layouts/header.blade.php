@@ -7,7 +7,7 @@
                 <div class="col-md-7">
                     <div class="ltn__top-bar-menu">
                         <ul>
-                            <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                            <li><a href="javascript:void(0)"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
                             <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
                         </ul>
                     </div>
@@ -33,18 +33,6 @@
                                         </ul>
                                     </div>
                                 </li>
-                                <li>
-                                    <!-- ltn__social-media -->
-                                    <div class="ltn__social-media">
-                                        <ul>
-                                            <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-
-                                            <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>
@@ -52,9 +40,13 @@
             </div>
         </div>
     </div>
-    <!-- ltn__header-top-area end -->
 
-    <!-- ltn__header-middle-area start -->
+    @if(!in_array( request()->route()->uri, ['/', 'getIndex']) )
+        <style>
+            .header-menu .ltn__main-menu ul > li > a {color:white};
+        </style>
+    @endif
+
     <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black ltn__logo-right-menu-option sticky-active-into-mobile--- plr--9---">
         <div class="container">
             <div class="row">

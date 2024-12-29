@@ -1,4 +1,4 @@
-@extends('Admin.layouts.default')
+@extends('admin.layouts.default')
 @section('content')
 
 
@@ -8,7 +8,7 @@
     <!-- products.update values update krne k liye -->
      <!-- value check krne k liye ye ye karna hai -->
     <!-- Miss mahotarma ji ispr product ka information lana tha   -->
-   
+
     <form action="{{ route('admin.products.update', ['id'=> $product->id] ) }}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="mb-3">
@@ -31,8 +31,8 @@
             <label for="stock" class="form-label">Quantity</label>
             <input type="number" name="quantity" class="form-control" value="{{$product->quantity}}" required>
         </div>
-        
-        <div class="mb-3 d-none"> 
+
+        <div class="mb-3 d-none">
             <!-- isko abhi k liye hide rakho -->
             <label for="stock" class="form-label">Category</label>
             <input type="number" name="category" class="form-control" required>

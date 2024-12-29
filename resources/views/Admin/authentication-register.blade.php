@@ -24,7 +24,7 @@
                   <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
                 </a>
                 <p class="text-center">Your Social Campaigns</p>
-                <form method="POST" action='/admin/register'>
+                <form method="POST" action='{{route("admin.register")}}'>
                   @csrf
                   <div class="mb-3">
                     <label for="exampleInputtext1" class="form-label">Name</label>

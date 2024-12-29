@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateProductsTable extends Migration
 {
-    
+
     public function up()
 {
     if (!Schema::hasTable('products')) {
@@ -16,17 +16,18 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->string('price');
+            $table->string('category')->nullable();
             $table->integer('quantity')->default(0);
             $table->timestamps();
         });
     }
 }
-    
+
     public function down()
     {
         Schema::dropIfExists('products');
     }
 }
 
-    
+

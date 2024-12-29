@@ -2,7 +2,14 @@
 
 @extends('layouts.main')
 @section('main-container')
-
+@php
+$visible = App\Models\Setting::where('name','price_visibility')->first('value')?->value;
+@endphp
+<style>
+    .ltn__product-item {
+        min-height: 250px!important;
+    }
+</style>
     <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
@@ -71,7 +78,7 @@
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
             <div class="ltn__utilize-menu-head">
                 <div class="site-logo">
-                    <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+                    <a href="{{url('/')}}"><img src="img/logo.png" alt="Logo"></a>
                 </div>
                 <button class="ltn__utilize-close">×</button>
             </div>
@@ -166,7 +173,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/e.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/e.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -201,11 +208,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Red Hot Tomato</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Red Hot Tomato</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$149.00</span>
                                                     <del>$162.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -213,7 +222,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/f.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/f.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -243,11 +252,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Vegetables Juices</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Vegetables Juices</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$62.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +266,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src= "{{asset('img/images/g.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src= "{{asset('img/images/g.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">Hot</li>
@@ -290,11 +301,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Fresh Juice</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Fresh Juice</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$75.00</span>
                                                     <del>$92.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -302,7 +315,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/h.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/h.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -332,11 +345,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Poltry Farm Meat</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Poltry Farm Meat</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$78.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -344,7 +359,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">Sell -25%</li>
@@ -379,11 +394,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Fresh Butter Cake</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Fresh Butter Cake</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$150.00</span>
                                                     <del>$180.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -391,7 +408,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/i.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/i.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -421,11 +438,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Sliced Mix</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Sliced Mix</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$152.00</span>
                                                     <del>$158.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -433,7 +452,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -463,11 +482,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Red Hot Tomato</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Red Hot Tomato</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$149.00</span>
                                                     <del>$162.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -475,7 +496,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/j.jpeg')}}"alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/j.jpeg')}}"alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -510,11 +531,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Vegetables Juices</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Vegetables Juices</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$62.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -522,7 +545,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/L.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/L.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -552,11 +575,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Fresh Juice</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Fresh Juice</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$75.00</span>
                                                     <del>$92.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -564,7 +589,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">Sell</li>
@@ -599,11 +624,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Poltry Farm Meat</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Poltry Farm Meat</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$78.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -611,7 +638,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -641,11 +668,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Fresh Butter Cake</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Fresh Butter Cake</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$150.00</span>
                                                     <del>$180.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -653,7 +682,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/b.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/b.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -688,11 +717,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Sliced Mix</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Sliced Mix</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -700,7 +731,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/c.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/c.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -730,11 +761,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Red Hot Tomato</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Red Hot Tomato</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$149.00</span>
                                                     <del>$162.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -742,7 +775,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/d.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/d.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -777,11 +810,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Vegetables Juices</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Vegetables Juices</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$62.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -789,7 +824,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/L.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/L.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -824,11 +859,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Fresh Juice</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Fresh Juice</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$75.00</span>
                                                     <del>$92.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -836,7 +873,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/h.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/h.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -866,11 +903,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Poltry Farm Meat</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Poltry Farm Meat</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$78.00</span>
                                                     <del>$85.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -878,7 +917,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/L.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/L.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -913,11 +952,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Fresh Butter Cake</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Fresh Butter Cake</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$150.00</span>
                                                     <del>$180.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -925,7 +966,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -960,11 +1001,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Sliced Mix</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Sliced Mix</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -972,7 +1015,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/vegies.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/vegies.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -1002,11 +1045,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Fresh Butter Cake</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Fresh Butter Cake</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$150.00</span>
                                                     <del>$180.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -1014,7 +1059,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/h.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/h.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -1049,11 +1094,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Orange Sliced Mix</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Sliced Mix</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -1061,7 +1108,7 @@
                                     <div class="col-xl-4 col-sm-6 col-6">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/x.jpeg')}}" alt="#"></a>
                                                 <div class="product-hover-action">
                                                     <ul>
                                                         <li>
@@ -1091,11 +1138,13 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
-                                                <h2 class="product-title"><a href="product-details.html">Red Hot Tomato</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Red Hot Tomato</a></h2>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$149.00</span>
                                                     <del>$162.00</del>
                                                 </div>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -1110,7 +1159,7 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="{{asset('img/images/Fresh_vegeis.jpeg')}}" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="{{asset('img/images/Fresh_vegeis.jpeg')}}" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -1118,7 +1167,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Vegetables Juices</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Vegetables Juices</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1128,10 +1177,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1160,10 +1211,10 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product/2.png" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="img/product/2.png" alt="#"></a>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Poltry Farm Meat</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Poltry Farm Meat</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1173,10 +1224,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1205,7 +1258,7 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product/3.png" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="img/product/3.png" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -1213,7 +1266,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Vegetables Juices</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Vegetables Juices</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1223,10 +1276,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1255,10 +1310,10 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product/4.png" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="img/product/4.png" alt="#"></a>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Red Hot Tomato</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Red Hot Tomato</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1268,10 +1323,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1300,7 +1357,7 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product/5.png" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="img/product/5.png" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">Hot</li>
@@ -1308,7 +1365,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Orange Sliced Mix</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Sliced Mix</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1318,10 +1375,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1350,7 +1409,7 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product/6.png" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="img/product/6.png" alt="#"></a>
                                                 <div class="product-badge">
                                                     <ul>
                                                         <li class="sale-badge">New</li>
@@ -1358,7 +1417,7 @@
                                                 </div>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Orange Sliced Mix</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Orange Sliced Mix</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1368,10 +1427,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1400,10 +1461,10 @@
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3">
                                             <div class="product-img">
-                                                <a href="product-details.html"><img src="img/product/4.png" alt="#"></a>
+                                                <a href="javascript:void(0)"><img src="img/product/4.png" alt="#"></a>
                                             </div>
                                             <div class="product-info">
-                                                <h2 class="product-title"><a href="product-details.html">Red Hot Tomato</a></h2>
+                                                <h2 class="product-title"><a href="javascript:void(0)">Red Hot Tomato</a></h2>
                                                 <div class="product-ratting">
                                                     <ul>
                                                         <li><a href="#"><i class="fas fa-star"></i></a></li>
@@ -1413,10 +1474,12 @@
                                                         <li><a href="#"><i class="far fa-star"></i></a></li>
                                                     </ul>
                                                 </div>
+                                                @if($visible)
                                                 <div class="product-price">
                                                     <span>$165.00</span>
                                                     <del>$1720.00</del>
                                                 </div>
+                                                @endif
                                                 <div class="product-brief">
                                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt,  aliquid, deleniti non et ut dolorem!</p>
                                                 </div>
@@ -1493,7 +1556,7 @@
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/1.png" alt="#"></a>
+                                            <a href="javascript:void(0)"><img src="img/product/1.png" alt="#"></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -1505,18 +1568,20 @@
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">Mixel Solid Seat Cover</a></h6>
+                                            <h6><a href="javascript:void(0)">Mixel Solid Seat Cover</a></h6>
+                                            @if($visible)
                                             <div class="product-price">
                                                 <span>$49.00</span>
                                                 <del>$65.00</del>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/2.png" alt="#"></a>
+                                            <a href="javascript:void(0)"><img src="img/product/2.png" alt="#"></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -1528,18 +1593,20 @@
                                                     <li><a href="#"><i class="fas fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">Vegetables Juices</a></h6>
+                                            <h6><a href="javascript:void(0)">Vegetables Juices</a></h6>
+                                            @if($visible)
                                             <div class="product-price">
                                                 <span>$49.00</span>
                                                 <del>$65.00</del>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="top-rated-product-item clearfix">
                                         <div class="top-rated-product-img">
-                                            <a href="product-details.html"><img src="img/product/3.png" alt="#"></a>
+                                            <a href="javascript:void(0)"><img src="img/product/3.png" alt="#"></a>
                                         </div>
                                         <div class="top-rated-product-info">
                                             <div class="product-ratting">
@@ -1551,11 +1618,13 @@
                                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                                 </ul>
                                             </div>
-                                            <h6><a href="product-details.html">Coil Spring Conversion</a></h6>
+                                            <h6><a href="javascript:void(0)">Coil Spring Conversion</a></h6>
+                                            @if($visible)
                                             <div class="product-price">
                                                 <span>$49.00</span>
                                                 <del>$65.00</del>
                                             </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </li>
@@ -1601,37 +1670,7 @@
                             </ul>
                         </div>
                         <!-- Color Widget -->
-                        <div class="widget ltn__color-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border">Product Color</h4>
-                            <ul>
-                                <li class="black"><a href="#"></a></li>
-                                <li class="white"><a href="#"></a></li>
-                                <li class="red"><a href="#"></a></li>
-                                <li class="silver"><a href="#"></a></li>
-                                <li class="gray"><a href="#"></a></li>
-                                <li class="maroon"><a href="#"></a></li>
-                                <li class="yellow"><a href="#"></a></li>
-                                <li class="olive"><a href="#"></a></li>
-                                <li class="lime"><a href="#"></a></li>
-                                <li class="green"><a href="#"></a></li>
-                                <li class="aqua"><a href="#"></a></li>
-                                <li class="teal"><a href="#"></a></li>
-                                <li class="blue"><a href="#"></a></li>
-                                <li class="navy"><a href="#"></a></li>
-                                <li class="fuchsia"><a href="#"></a></li>
-                                <li class="purple"><a href="#"></a></li>
-                                <li class="pink"><a href="#"></a></li>
-                                <li class="nude"><a href="#"></a></li>
-                                <li class="orange"><a href="#"></a></li>
-
-                                <li><a href="#" class="orange"></a></li>
-                                <li><a href="#" class="orange"></a></li>
-                            </ul>
-                        </div>
                         <!-- Banner Widget -->
-                        <div class="widget ltn__banner-widget">
-                            <a href="shop.html"><img src="img/banner/banner-1.jpg" alt="#"></a>
-                        </div>
 
                     </aside>
                 </div>
@@ -1645,58 +1684,6 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ltn__feature-item-box-wrap ltn__border-between-column white-bg">
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6 col-12">
-                                <div class="ltn__feature-item ltn__feature-item-8">
-                                    <div class="ltn__feature-icon">
-                                        <img src="img/icons/icon-img/11.png" alt="#">
-                                    </div>
-                                    <div class="ltn__feature-info">
-                                        <h4>Curated Products</h4>
-                                        <p>Provide Curated Products for
-                                            all product over $100</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 col-12">
-                                <div class="ltn__feature-item ltn__feature-item-8">
-                                    <div class="ltn__feature-icon">
-                                        <img src="img/icons/icon-img/12.png" alt="#">
-                                    </div>
-                                    <div class="ltn__feature-info">
-                                        <h4>Handmade</h4>
-                                        <p>We ensure the product quality
-                                            that is our main goal</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 col-12">
-                                <div class="ltn__feature-item ltn__feature-item-8">
-                                    <div class="ltn__feature-icon">
-                                        <img src="img/icons/icon-img/13.png" alt="#">
-                                    </div>
-                                    <div class="ltn__feature-info">
-                                        <h4>Natural Food</h4>
-                                        <p>Return product within 3 days
-                                            for any product you buy</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6 col-12">
-                                <div class="ltn__feature-item ltn__feature-item-8">
-                                    <div class="ltn__feature-icon">
-                                        <img src="img/icons/icon-img/14.png" alt="#">
-                                    </div>
-                                    <div class="ltn__feature-info">
-                                        <h4>Free home delivery</h4>
-                                        <p>We ensure the product quality
-                                            that you can trust easily</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

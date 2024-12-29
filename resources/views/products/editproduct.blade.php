@@ -1,4 +1,4 @@
-@extends('Admin.layouts.default')
+@extends('admin.layouts.default')
 @section('content')
 
 
@@ -26,7 +26,7 @@
             <label for="stock" class="form-label">Quantity</label>
             <input type="number" name="quantity" class="form-control" required>
         </div>
-        
+
         <div class="mb-3">
             <label for="stock" class="form-label">Category</label>
             <input type="number" name="category" class="form-control" required>

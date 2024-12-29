@@ -22,7 +22,10 @@ Route::get('/shop', function () {
 // lekin login ho chuka hai pahle hi isliye dashboard
 Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
     Route::controller(AdminController::class)->group(function(){
-        //Route::get('/', function(){})->name('index'); // kewal admin likhne par ye call hoga admin. lagne pr neeche k routes
+        Route::get('/', function(){
+            if(Auth::user()) return redirect()->route('admin.dashboard');
+            else return redirect()->route('admin.login_view');
+        }); // kewal admin likhne par ye call hoga admin. lagne pr neeche k routes
         // thiik h fir continue karo
         Route::get('dashboard', function(){
             if(Auth::user())
@@ -189,9 +192,9 @@ Route::get('edit-product', [ProductsController::class, 'edit'])->name('edit-prod
 
 Route::get('/file-import',[UserController::class,
             'importView'])->name('import-view');
-    Route::post('/import',[UserController::class,
-            'import'])->name('import');
-    Route::get('/export-users',[UserController::class,
-            'exportUsers'])->name('export-users');
+Route::post('/import',[UserController::class,
+        'import'])->name('import');
+Route::get('/export-users',[UserController::class,
+        'exportUsers'])->name('export-users');
 
 
