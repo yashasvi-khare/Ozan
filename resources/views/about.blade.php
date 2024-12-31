@@ -137,7 +137,7 @@
                         <p>sellers who aspire to be good, do good, and spread goodness. We
                                 democratic, self-sustaining, two-sided marketplace which thrives
                                 on trust and is built on community and quality content.</p>
-                        <div class="about-author-info d-flex">
+                        <!-- <div class="about-author-info d-flex">
                             <div class="author-name-designation  align-self-center">
                                 <h4 class="mb-0">Jerry Henson</h4>
                                 <small>/ Shop Director</small>
@@ -145,7 +145,7 @@
                             <div class="author-sign">
                                 <img src="{{asset('img/icons/icon-img/author-sign.png')}}" alt="#">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -210,8 +210,8 @@
     <!-- FEATURE AREA END -->
 
     <!-- TEAM AREA START (Team - 3) -->
-    <div class="ltn__team-area pt-115 pb-90">
-        <div class="container">
+    <!-- <div class="ltn__team-area pt-115 pb-90">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
@@ -293,8 +293,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div> -->
+    
     <!-- TEAM AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-5) -->

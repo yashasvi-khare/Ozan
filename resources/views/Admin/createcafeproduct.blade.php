@@ -1,35 +1,39 @@
-@extends('Admin.layouts.default')
+@extends('admin.layouts.default')
 
 @section('content')
 
 <div class="container">
-    <h1>Manage Cafe Settings</h1>
+    <h1> Create Cafe Product</h1>
     <form action="{{ route('admin.productstore') }}" enctype="multipart/form-data" method="POST">
         @csrf
         <div class="mb-3">
-            <label for="name" class="form-label">menu_id</label>
-            <input type="menu_id" name="menu_id" class="form-control" accept="image/*" >
+            <label for="name" class="form-label">Menu</label>
+            <select type="menu_id" name="menu_id" class="form-control" >
+                <option value="">Choose Menu</option>
+                @foreach (App\Models\CafeMenu::all() as $menu)
+                    <option value="{{$menu->id}}">{{$menu->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="mb-3">
-            <label for="stock" class="form-label">Name</label>
-            <input type="text" name="name" class="form-control" >
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control" >
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Status</label>
-            <input type="text" name="status" class="form-control" >
+            <input type="checkbox" name="status" checked>
         </div>
         <div class="mb-3">
             <label for="price" class="form-label"> Price </label>
-            <input type="checkbox" name="price_visibility" >
+            <input type="number" name="price" class="form-control">
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Image</label>
-            <input type="file" accept="image/*" name="img" class="form-control" >
+            <input type="file" accept="image/*" name="image" class="form-control">
         </div>
-        
-        
-        <button type="submit" class="btn btn-success">Update</button>
+        <button type="submit" class="btn btn-success"> Create </button>
     </form>
+
 </div>
 
 @endsection

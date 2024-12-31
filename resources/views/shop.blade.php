@@ -114,7 +114,7 @@
                     </li>
                     <li><a href="#">Shop</a>
                         <ul class="sub-menu">
-                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="{{url('shop')}}">Shop</a></li>
                             <li><a href="shop-grid.html">Shop Grid</a></li>
                             <li><a href="shop-left-sidebar.html">Shop Left sidebar</a></li>
                             <li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
@@ -1582,7 +1582,7 @@
                             </ul>
                         </div>
                         <!-- Price Filter Widget -->
-                        <div class="widget ltn__price-filter-widget">
+                        <!-- <div class="widget ltn__price-filter-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Filter by price</h4>
                             <div class="price_filter">
                                 <div class="price_slider_amount">
@@ -1591,9 +1591,9 @@
                                 </div>
                                 <div class="slider-range"></div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Top Rated Product Widget -->
-                        <div class="widget ltn__top-rated-product-widget">
+                        <!-- <div class="widget ltn__top-rated-product-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Top Rated Product</h4>
                             <ul>
                                 <li>
@@ -1666,17 +1666,17 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- Search Widget -->
-                        <div class="widget ltn__search-widget">
+                        <!-- <div class="widget ltn__search-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Search Objects</h4>
                             <form action="#">
                                 <input type="text" name="search" placeholder="Search your keyword...">
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </form>
-                        </div>
+                        </div> -->
                         <!-- Tagcloud Widget -->
-                        <div class="widget ltn__tagcloud-widget">
+                        <!-- <div class="widget ltn__tagcloud-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Popular Tags</h4>
                             <ul>
                                 <li><a href="#">Popular</a></li>
@@ -1694,9 +1694,9 @@
                                 <li><a href="#">Oil Change</a></li>
                                 <li><a href="#">Body Color</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- Size Widget -->
-                        <div class="widget ltn__tagcloud-widget ltn__size-widget">
+                        <!-- <div class="widget ltn__tagcloud-widget ltn__size-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Product Size</h4>
                             <ul>
                                 <li><a href="#">S</a></li>
@@ -1705,7 +1705,7 @@
                                 <li><a href="#">XL</a></li>
                                 <li><a href="#">XXL</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- Color Widget -->
                         <div class="widget ltn__color-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Product Color</h4>
@@ -1736,7 +1736,7 @@
                         </div>
                         <!-- Banner Widget -->
                         <div class="widget ltn__banner-widget">
-                            <a href="shop.html"><img src="img/banner/banner-2.jpg" alt="#"></a>
+                            <a href="{{url('shop')}}"><img src="img/banner/banner-2.jpg" alt="#"></a>
                         </div>
 
                     </aside>

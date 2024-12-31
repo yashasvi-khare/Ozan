@@ -18,7 +18,7 @@
                                             <i class="icon-placeholder"></i>
                                         </div>
                                         <div class="footer-address-info">
-                                            <p>Brooklyn, New York, United States</p>
+                                            <p>Berberis 13, 2262 AT Leidschendam, Netherlands</p>
                                         </div>
                                     </li>
                                     <li>
@@ -26,7 +26,7 @@
                                             <i class="icon-call"></i>
                                         </div>
                                         <div class="footer-address-info">
-                                            <p><a href="#">+0123-456789</a></p>
+                                            <p><a href="tel:+31 6 11860003">+31 6 11860003</a></p>
                                         </div>
                                     </li>
                                     <li>
@@ -34,7 +34,7 @@
                                             <i class="icon-mail"></i>
                                         </div>
                                         <div class="footer-address-info">
-                                            <p><a href="mailto:example@example.com">example@example.com</a></p>
+                                            <p><a href="mailto:Info@ozanmarket.nl">Info@ozanmarket.nl</a></p>
                                         </div>
                                     </li>
                                 </ul>
@@ -48,10 +48,7 @@
                             <div class="footer-menu">
                                 <ul>
                                     <li><a href="{{route('about')}}">About</a></li>
-                                    <li><a href="{{route('blog')}}">Blog</a></li>
                                     <li><a href="{{route('shop')}}">All Products</a></li>
-                                    <li><a href="{{route('locations')}}">Locations Map</a></li>
-                                    <li><a href="{{route('faq')}}">FAQ</a></li>
                                     <li><a href="{{route('contact')}}">Contact us</a></li>
                                 </ul>
                             </div>

@@ -16,7 +16,7 @@ Route::get('/getIndex', function () {
 Route::get('/shop', function () {
     return view('shop-left-sidebar');
 })->name('shop');
-
+Route::view('contact', 'contact')->name('contact');
 // Admin Panel
 
 // Aage se is group k routes aise use honge `admin.dashboard`
@@ -46,7 +46,11 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
         Route::get('products', [AdminController::class, 'products'])->name('products');
         Route::get('createproduct', [AdminController::class, 'createproduct'])->name('createproduct');
         Route::post('store-product', [AdminController::class, 'store'])->name('store-product');
+        Route::view('createmenu', 'admin.createmenu')->name('createMenu');
+        Route::post('store-menu', 'storeMenu')->name('storeMenu');
+        Route::get('remove-menu/{id}', 'deleteMenu')->name('deleteMenu');
         Route::get('createcafeproduct', [AdminController::class, 'createcafeproduct'])->name('createcafeproduct');
+        Route::get('remove-cafe-product/{id}', [AdminController::class, 'removeCafeProduct'])->name('cafeproduct.remove');
         Route::post('productstore', [AdminController::class, 'productstore'])->name('productstore');
         Route::get('/products/{id}/edit', [AdminController::class, 'edit'])->name('products.edit');
         Route::get('/settings', [AdminController::class, 'settings'])->name('settings');
@@ -83,4 +87,4 @@ Route::get('/export-users',[UserController::class,'exportUsers'])->name('export-
 
 // Setting routes
 Route::get('/admin/cafesettings', [AdminController::class, 'cafesettings'])->name('admin.cafesettings');
-Route::get('/admin/cafeproducts', [AdminController::class, 'cafeproducts'])->name('admin.cafeproducts'); 
+Route::get('/admin/cafeproducts', [AdminController::class, 'cafeproducts'])->name('admin.cafeproducts');

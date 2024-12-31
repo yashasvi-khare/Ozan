@@ -11,8 +11,8 @@ class CreateProductsTable extends Migration
 
     public function up()
 {
-    if (!Schema::hasTable('products')) {
-        Schema::create('products', function (Blueprint $table) {
+    if (!Schema::hasTable('marketproducts')) {
+        Schema::create('marketproducts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
@@ -26,7 +26,7 @@ class CreateProductsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('marketproducts');
     }
 }
 

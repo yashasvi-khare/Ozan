@@ -54,7 +54,7 @@
                     <div class="site-logo-wrap">
                         <div class="site-logo">
                             <a href="{{url('/')}}" class="position-relative">
-                                <img src="{{asset('img/logo.png')}}" height="140" alt="Logo" class="position-absolute">
+                                <img src="{{asset('img/logo.png')}}" height="170" alt="Logo" class="position-absolute">
                             </a>
                         </div>
                     </div>
@@ -66,8 +66,9 @@
                                 <ul>
                                     <li class="menu-icon"><a href="{{route('getIndex')}}">Home</a></li>
                                     <li class="menu-icon"><a target="_blank" href="/ozan-cafe/public">Café</a></li>
+                                    <li class="menu-icon"><a href="{{route('shop')}}">Products</a></li>
                                     <li class="menu-icon"><a href="{{route('about')}}">About</a></li>
-                                    <li class="menu-icon d-none"><a href="{{route('shop')}}">Shop</a></li>
+                                    
                                     <li><a href="{{route('contact')}}">Contact</a></li>
                                 </ul>
                             </div>

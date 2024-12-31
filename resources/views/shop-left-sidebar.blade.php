@@ -147,7 +147,7 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                                     </div>
                                 </div>
                             </li>
-                            <li>
+                            <!-- <li>
                                <div class="short-by text-center">
                                     <select class="nice-select">
                                         <option>Default sorting</option>
@@ -158,11 +158,11 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                                     </select>
                                 </div>
                             </li>
-                            <li>
-                               <div class="showing-product-number text-right text-end">
+                            <li> -->
+                               <!-- <div class="showing-product-number text-right text-end">
                                     <span>Showing 9 of 20 results</span>
-                                </div>
-                            </li>
+                                </div> -->
+                            <!-- </li> -->
                         </ul>
                     </div>
                     <div class="tab-content">
@@ -1527,19 +1527,19 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                     <aside class="sidebar ltn__shop-sidebar">
                         <!-- Category Widget -->
                         <div class="widget ltn__menu-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border">Product categories</h4>
+                            <h4 class="ltn__widget-title ltn__widget-title-border">Product Brand</h4>
                             <ul>
-                                <li><a href="#">Body <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li><a href="#">Interior <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li><a href="#">Lights <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li><a href="#">Parts <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li><a href="#">Tires <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li><a href="#">Uncategorized <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
-                                <li><a href="#">Wheel <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">Nescafe <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">Coca Cola <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">MTR <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">Tacobel <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">Cadbury <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">Pepsi <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
+                                <li><a href="#">Mccains <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
                             </ul>
                         </div>
                         <!-- Price Filter Widget -->
-                        <div class="widget ltn__price-filter-widget">
+                        <!-- <div class="widget ltn__price-filter-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Filter by price</h4>
                             <div class="price_filter">
                                 <div class="price_slider_amount">
@@ -1548,9 +1548,9 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                                 </div>
                                 <div class="slider-range"></div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- Top Rated Product Widget -->
-                        <div class="widget ltn__top-rated-product-widget">
+                        <!-- <div class="widget ltn__top-rated-product-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Top Rated Product</h4>
                             <ul>
                                 <li>
@@ -1629,17 +1629,17 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                                     </div>
                                 </li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- Search Widget -->
-                        <div class="widget ltn__search-widget">
+                        <!-- <div class="widget ltn__search-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Search Objects</h4>
                             <form action="#">
                                 <input type="text" name="search" placeholder="Search your keyword...">
                                 <button type="submit"><i class="fas fa-search"></i></button>
                             </form>
-                        </div>
+                        </div> -->
                         <!-- Tagcloud Widget -->
-                        <div class="widget ltn__tagcloud-widget">
+                        <!-- <div class="widget ltn__tagcloud-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Popular Tags</h4>
                             <ul>
                                 <li><a href="#">Popular</a></li>
@@ -1657,9 +1657,9 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                                 <li><a href="#">Oil Change</a></li>
                                 <li><a href="#">Body Color</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- Size Widget -->
-                        <div class="widget ltn__tagcloud-widget ltn__size-widget">
+                        <!-- <div class="widget ltn__tagcloud-widget ltn__size-widget">
                             <h4 class="ltn__widget-title ltn__widget-title-border">Product Size</h4>
                             <ul>
                                 <li><a href="#">S</a></li>
@@ -1668,7 +1668,7 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                                 <li><a href="#">XL</a></li>
                                 <li><a href="#">XXL</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <!-- Color Widget -->
                         <!-- Banner Widget -->
 
