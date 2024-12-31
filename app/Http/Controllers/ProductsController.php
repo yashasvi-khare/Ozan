@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\CafeProductImport;
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\MarketProduct;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ProductImport;
 
@@ -13,21 +14,21 @@ class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = MarketProduct::all();
         return view('products.index', compact('products'));
     }
 
-    public function show(Product $product)
+    public function show(MarketProduct $product)
     {
         return view('show_product', compact('product'));
     }
 
-    public function edit(Product $product)
+    public function edit(MarketProduct $product)
     {
         return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, MarketProduct $product)
     {
         $path = $request->file('image')->store('images', 'public');
         $request->validate([
@@ -44,10 +45,10 @@ class ProductsController extends Controller
         return redirect()->route('products')->with('success', 'Product updated successfully.');
     }
 
-    public function destroy(Product $product)
+    public function destroy(MarketProduct $product)
     {
         $product->delete();
-        return redirect()->route('index')->with('success', 'Product deleted successfully.');
+        return redirect()->route('index')->with('success', 'MarketProduct deleted successfully.');
     }
     public function import(Request $request)
     {
@@ -63,6 +64,17 @@ class ProductsController extends Controller
         // Redirect back with success message
         return redirect()->back()->with('success', 'Data imported successfully!');
     }
+    public function cafeimport(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv',
+        ]);
+
+        Excel::import(new CafeProductImport($request->category), $request->file('file'));
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Data imported successfully!');
+    }
+  
 
 }
 

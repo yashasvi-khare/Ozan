@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
+    protected $table='marketsettings';
         use HasFactory;
         public $timestamps=false;
         protected $guarded=[];

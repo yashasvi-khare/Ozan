@@ -2,7 +2,7 @@
 
 namespace App\Imports;
 
-use App\Models\Product;
+use App\Models\MarketProduct;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
@@ -20,7 +20,7 @@ class ProductImport implements ToModel,WithHeadingRow
     */
     public function model(array $row)
     {
-        return new Product([
+        return new MarketProduct([
         'title'=>$row['title'],
         'picture'=>$row['picture'],
         'description'=>$row['description'],
