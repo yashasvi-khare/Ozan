@@ -11,6 +11,7 @@
     @php
         $showPrice = App\Models\Setting::where('name','price_visibility')->first('value')?->value;
     @endphp
+    
     <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
 
         <div class="ltn__utilize-menu-inner ltn__scrollbar">
@@ -209,6 +210,15 @@
                         <h1 class="section-title">Our Products</h1>
                     </div>
                     <div class="ltn__tab-menu ltn__tab-menu-2 ltn__tab-menu-top-right-- text-uppercase text-center">
+                        <!-- 
+                        sabse pahle ye jaano ki ye tabs wala work kaise karta hai. 
+                        jab kisi category par click karte hain to uske andar href="#liton_tab_3_1" isme jo ye `liton_tab_3_1` hai
+                        ye ek div ki ID hoti hai .
+                        jab  category pr click krte hain to sabhi aise DIVs hide ho jate hain kewal jispr id target wali hoti hai wo show hota hai
+                        smjhi ? thik 
+                        Samajh gyi?hmm
+                        thik hai kro fir problem pr btatna ok
+                        -->
                         <div class="nav">
                             <a class="active show" data-bs-toggle="tab" href="#liton_tab_3_1">Veggies & Fruits</a>
                             <a data-bs-toggle="tab" href="#liton_tab_3_2" class="">Non Veg</a>
@@ -217,108 +227,125 @@
                             <a data-bs-toggle="tab" href="#liton_tab_3_5" class="">Turkish Grocery</a>
                         </div>
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane fade active show" id="liton_tab_3_1">
+                    <div class="tab-content"> <!-- jitne buttons upar hain utne neeche DIVs hain
+                        ab yahi par tumhe foreach loop laga dena hai
+                        to sabse pahel hame marketproducts table ka saara data yaha par chahiye thik?hhhhhhhhhm
+                        fir ye loop chalana hai product ki categorty k base par
+                        
+                        notice karna ki jo neeche div hain sbhi ka format ek hi hai 
+                        base data price aur image change hui hai
+                        to bas ab whi par loop laga dete hai 
+                        mai ek par laga dunga baki dekhkr tum sbpr lagana thik ?ok
+
+                        ha nhi to pata lge udhr phone chala rhi idhr 
+                    -->
+                        @php 
+                            $products = \App\Models\MarketProduct::all();
+                        @endphp
+                        <div class="tab-pane fade active show" id="liton_tab_3_1"> <!-- jaise ye -->
                             <div class="ltn__product-tab-content-inner">
                                 <div class="row ltn__tab-product-slider-one-active slick-arrow-1">
-                                    <!-- ltn__product-item -->
-                                    <div class="col-lg-12">
-                                        <div class="ltn__product-item ltn__product-item-3 text-center">
-                                            <div class="product-img">
-                                                <a href="javascript:void(0)"><img src="{{asset('img/images/Fresh_vegetable.jpeg')}}" alt="javascript:void(0)"></a>
-                                                <div class="product-badge">
-                                                    <ul>
-                                                        <li class="sale-badge">-19%</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="product-hover-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="javascript:void(0)" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                                                <i class="far fa-eye"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:void(0)" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                                                <i class="fas fa-shopping-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:void(0)" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                                                <i class="far fa-heart"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-ratting">
-                                                    <ul>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star-half-alt"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="far fa-star"></i></a></li>
-                                                        <li class="review-total"> <a href="javascript:void(0)"> (24)</a></li>
-                                                    </ul>
-                                                </div>
-                                                <h2 class="product-title"><a href="javascript:void(0)">Carrots Group Scal</a></h2>
-                                                @if($showPrice)
-                                                    <div class="product-price">
-                                                        <span>$32.00</span>
-                                                        <del>$46.00</del>
+                                    <!-- ltn__product-item itna tej kyu chal raha hai? -->
+                                    @foreach($products as $product)
+                                        <div class="col-lg-12">
+                                            <div class="ltn__product-item ltn__product-item-3 text-center">
+                                                <div class="product-img">
+                                                    <a href="javascript:void(0)">
+                                                        <img src="{{ asset('storage/'.$product->picture)}}" alt="javascript:void(0)"></a>
+                                                    <div class="product-badge">
+                                                        <ul>
+                                                            <li class="sale-badge">-19%</li>
+                                                        </ul>
                                                     </div>
-                                                @endif
+                                                    <div class="product-hover-action">
+                                            
+                                                        <ul>
+                                                            <li>
+                                                                <a href="{{ asset('storage/'.$product->picture)}}" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                                                    <i class="far fa-eye"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                                    <i class="fas fa-shopping-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                                                    <i class="far fa-heart"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="product-info">
+                                                    <div class="product-ratting">
+                                                        <ul>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star-half-alt"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="far fa-star"></i></a></li>
+                                                            <li class="review-total"> <a href="javascript:void(0)"> (24)</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <h2 class="product-title"><a href="javascript:void(0)">{{$product->title}}</a></h2>
+                                                    @if($showPrice)
+                                                        <div class="product-price">
+                                                            <span>${{$product->price}}</span>
+                                                        </div>
+                                                    @endif
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="ltn__product-item ltn__product-item-3 text-center">
-                                            <div class="product-img">
-                                                <a href="javascript:void(0)"><img src="{{asset('img/product/7.png')}}" alt="javascript:void(0)"></a>
-                                                <div class="product-badge">
-                                                    <ul>
-                                                        <li class="sale-badge">New</li>
-                                                    </ul>
+                                            <!-- <div class="ltn__product-item ltn__product-item-3 text-center">
+                                                <div class="product-img">
+                                                    <a href="javascript:void(0)"><img src="{{asset('img/product/7.png')}}" alt="javascript:void(0)"></a>
+                                                    <div class="product-badge">
+                                                        <ul>
+                                                            <li class="sale-badge">New</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="product-hover-action">
+                                                        <ul>
+                                                            <li>
+                                                                <a href="javascript:void(0)" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
+                                                                    <i class="far fa-eye"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
+                                                                    <i class="fas fa-shopping-cart"></i>
+                                                                </a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="javascript:void(0)" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
+                                                                    <i class="far fa-heart"></i></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                                <div class="product-hover-action">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="javascript:void(0)" title="Quick View" data-bs-toggle="modal" data-bs-target="#quick_view_modal">
-                                                                <i class="far fa-eye"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:void(0)" title="Add to Cart" data-bs-toggle="modal" data-bs-target="#add_to_cart_modal">
-                                                                <i class="fas fa-shopping-cart"></i>
-                                                            </a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:void(0)" title="Wishlist" data-bs-toggle="modal" data-bs-target="#liton_wishlist_modal">
-                                                                <i class="far fa-heart"></i></a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="product-info">
-                                                <div class="product-ratting">
-                                                    <ul>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="fas fa-star-half-alt"></i></a></li>
-                                                        <li><a href="javascript:void(0)"><i class="far fa-star"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                                <h2 class="product-title"><a href="javascript:void(0)">Kiwis</a></h2>
+                                                <div class="product-info">
+                                                    <div class="product-ratting">
+                                                        <ul>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="fas fa-star-half-alt"></i></a></li>
+                                                            <li><a href="javascript:void(0)"><i class="far fa-star"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <h2 class="product-title"><a href="javascript:void(0)">Kiwis</a></h2>
 
-                                                @if($showPrice)
-                                                <div class="product-price">
-                                                    <span>$78.00</span>
-                                                    <del>$85.00</del>
-                                                </div>
-                                                @endif
+                                                    @if($showPrice)
+                                                    <div class="product-price">
+                                                        <span>$78.00</span>
+                                                        <del>$85.00</del>
+                                                    </div>
+                                                    @endif
 
-                                            </div>
+                                                </div>
+                                            </div> -->
                                         </div>
-                                    </div>
+                                    @endforeach
                                     <!-- ltn__product-item -->
                                     <div class="col-lg-12">
                                         <div class="ltn__product-item ltn__product-item-3 text-center">

@@ -30,8 +30,11 @@
         <div class="mb-3">
             <label for="stock" class="form-label">Category</label>
             <select type="number" name="category" class="form-control" required>
-                <option value="non-veg">Veg</option>
-                <option value="non-veg">Non-Veg</option>
+                <option value="">Veg</option>
+                <option value="">Non-Veg</option>
+                <option value="Indian-Grocery">Indian-Grocery</option>
+                <option value="Indian-Grocery">Indian-Grocery</option>
+                <option value="Turkish-Grocery">Turkish-Grocery</option>
             </select>
         </div>
         <div class="mb-3">
