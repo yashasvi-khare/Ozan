@@ -68,6 +68,8 @@ Route::view('/product-details', 'product-details')->name('product-details');
 Route::view('/login', 'login')->name('login');
 Route::view('/register','register')->name('register');
 Route::view('/about', 'about')->name('about');
+Route::view('/service-details', 'service-details')->name('service-details');
+Route::view('/team-details', 'team-details')->name('team-details');
 
 Route::post('sign-up', [LoginController::class, 'register'])->name('signUp');
 Route::post('sign-in', [LoginController::class, 'login'])->name('sign-in');

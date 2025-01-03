@@ -11,7 +11,7 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Banner Image</label>
-            <input type="file" name="banner_img" class="form-control"  >
+            <input type="file" name="banner_img" class="form-control" style="height:30">
         </div>
         <img src="{{asset('storage/'.App\Models\Setting::where('name','banner_img')->first('value')?->value)}}" alt="">
         <div class="mb-3">
@@ -20,7 +20,7 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label" >Hot Deal Image</label>
-            <input type="file" name="hot_deal_img" class="form-control" style="height: 50px;">
+            <input type="file" name="hot_deal_img" class="form-control" style="height:30">
         </div>
         <img src="{{asset('storage/'.App\Models\Setting::where('name','hot_deal_img')->first('value')?->value)}}" alt="">
         <div class="mb-3">
