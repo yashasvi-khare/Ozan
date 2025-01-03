@@ -60,7 +60,8 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
         Route::post('/import-cafe-product', [ProductsController::class, 'cafeimport'])->name('cafeproducts.import');
         Route::post('/update-settings/{id}', [AdminController::class, 'updateSettings']);
         Route::get('admin-edit', [AdminController::class, 'admin-edit'])->name('admin-edit');
-    });Route::get('cafemenus', [AdminController::class, 'cafemenus'])->name('cafemenus');
+    });
+    Route::get('cafemenus', [AdminController::class, 'cafemenus'])->name('cafemenus');
 });
 
 Route::view('/product-details', 'product-details')->name('product-details');
@@ -88,3 +89,7 @@ Route::get('/export-users',[UserController::class,'exportUsers'])->name('export-
 // Setting routes
 Route::get('/admin/cafesettings', [AdminController::class, 'cafesettings'])->name('admin.cafesettings');
 Route::get('/admin/cafeproducts', [AdminController::class, 'cafeproducts'])->name('admin.cafeproducts');
+Route::get('/admin/{id}/editcafemenus', [AdminController::class, 'editcafemenus'])->name('admin.editcafemenus');
+Route::post('/admin/{id}/updateMenu', [AdminController::class, 'updateMenu'])->name('admin.updateMenu');
+Route::get('/admin/{id}/editcafeproduct', [AdminController::class, 'editcafeproduct'])->name('admin.editcafeproduct');
+Route::post('/admin/{id}/updateProduct', [AdminController::class, 'updateProduct'])->name('admin.updateProduct');

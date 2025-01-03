@@ -34,7 +34,7 @@
                     <td>{{ $product->status?'Active':'Inactive' }}</td>
                     <td>€ {{ $product->price }}</td>
                     <td>
-                        <a href="#" class="btn btn-success btn-sm">Edit</a>
+                        <a href="{{route('admin.editcafeproduct',['id'=> $product->id])}}" class="btn btn-success btn-sm">Edit</a>
                         <a class="btn btn-danger btn-sm" href="{{route('admin.cafeproduct.remove',['id' => $product->id])}}" onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
                 </tr>

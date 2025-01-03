@@ -11,18 +11,18 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">Banner Image</label>
-            <input type="file" name="banner_img" class="form-control" >
+            <input type="file" name="banner_img" class="form-control"  >
         </div>
-        <img src="{{App\Models\Setting::where('name','banner_img')->first('value')?->value}}" alt="">
+        <img src="{{asset('storage/'.App\Models\Setting::where('name','banner_img')->first('value')?->value)}}" alt="">
         <div class="mb-3">
             <label for="price" class="form-label"> Price </label>
             <input type="checkbox" name="price_visibility" @if($visible) checked @endif>
         </div>
         <div class="mb-3">
-            <label for="stock" class="form-label">Hot Deal Image</label>
-            <input type="file" name="hot_deal_img" class="form-control" >
+            <label for="stock" class="form-label" >Hot Deal Image</label>
+            <input type="file" name="hot_deal_img" class="form-control" style="width: 300px; height: 50px;">
         </div>
-        <img src="{{App\Models\Setting::where('name','hot_deal_img')->first('value')?->value}}" alt="">
+        <img src="{{asset('storage/'.App\Models\Setting::where('name','hot_deal_img')->first('value')?->value)}}" alt="">
         <div class="mb-3">
             <label for="stock" class="form-label">Hot Deal Text</label>
             <input type="text" name="hot_deal_text" class="form-control" value="">

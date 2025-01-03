@@ -24,7 +24,7 @@
                     <td>{{ $menu->name }}</td>
                     <td><img src="{{ asset('storage/'.$menu->image) }}"  width='100' alt=""></td>
                     <td>
-                    <a href="#" class="btn btn-success btn-sm">Edit</a>
+                    <a href="{{route('admin.editcafemenus',['id'=> $menu->id])}}" class="btn btn-success btn-sm">Edit</a>
                     <a class="btn btn-danger btn-sm" href="{{route('admin.deleteMenu',['id'=>$menu->id])}}" onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
                 </tr>

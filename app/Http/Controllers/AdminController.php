@@ -296,4 +296,55 @@ public function removeCafeProduct($id){
         return back()->with('error', 'Failed to remove the menu!');
     }
 }
+
+
+
+public function editCafeMenus($id)
+{
+    $cafemenu= CafeMenu::findOrFail($id); 
+    return view('admin.editcafemenus', compact('cafemenu'));
 }
+
+
+public function updateMenu(Request $request, $id)
+{
+    $CafeMenu = CafeMenu::findOrFail($id);
+    if($request->has('image'))
+    {
+        $path = $request->file('image')->store('Ocafe/menus', 'public');
+        $CafeMenu->update([
+            'name' => $request->name,
+            'image' => $path
+        ]);
+    } else {
+        $CafeMenu->update([
+            'name' => $request->name,
+        ]);
+    }
+
+    return redirect()->route('admin.cafemenus')->with('success', 'Menus updated successfully.');
+}
+
+
+
+public function editCafeProduct($id)
+{
+    $cafeproducts= CafeProduct::findOrFail($id); 
+    return view('admin.editcafeproduct', compact('cafeproducts'));
+}
+
+public function updateProduct(Request $request, $id)
+{
+    $Cafeproducts = CafeProduct::findOrFail($id);
+    // dd($request->all());
+    $Cafeproducts->update([
+        'name' => $request->name,
+        'menu_id' => $request->menu_id,
+        'status' => $request->status??false,
+        'price' => $request->price,
+    ]);
+
+    return redirect()->route('admin.cafeproducts')->with('success', 'Products updated successfully.');
+}
+}
+
