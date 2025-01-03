@@ -16,30 +16,30 @@
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Description</label>
-            <input type="text" name="description" class="form-control" required>
+            <input type="text" name="description" class="form-control" >
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Price</label>
-            <input type="number" name="price" class="form-control" required>
+            <input type="text" pattern="^\d+(\.\d+)?$" name="price" class="form-control" required>
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Quantity</label>
-            <input type="number" name="quantity" class="form-control" required>
+            <input type="number" name="quantity" class="form-control" >
         </div>
 
         <div class="mb-3">
             <label for="stock" class="form-label">Category</label>
             <select type="number" name="category" class="form-control" required>
-                <option value="">Veg</option>
-                <option value="">Non-Veg</option>
-                <option value="Indian-Grocery">Indian-Grocery</option>
-                <option value="Indian-Grocery">Indian-Grocery</option>
-                <option value="Turkish-Grocery">Turkish-Grocery</option>
+                <option value="Veg">Veg</option>
+                <option value="Non-veg">Non-Veg</option>
+                <option value="Indian-grocery">Indian-Grocery</option>
+                <option value="Persian-grocery">Persian-Grocery</option>
+                <option value="Turkish-grocery">Turkish-Grocery</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="stock" class="form-label">Discount</label>
-            <input type="number" name="discount" class="form-control" required>
+            <input type="number" name="discount" class="form-control" value="0" required>
         </div>
         <button type="submit" class="btn btn-success">Create</button>
     </form>

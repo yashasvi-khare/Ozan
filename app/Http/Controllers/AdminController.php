@@ -9,6 +9,7 @@ use App\Models\Setting;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AdminController extends Controller
 {
@@ -100,10 +101,9 @@ class AdminController extends Controller
         //     'category' => 'required|integer',
         //     'discount' => 'required|integer',
         // ]);
-        $path = $request->file('image')->store('images', 'public');
-
+        $path = $request->file('image')->store($request->category, 'public');
         try {
-            MarketProduct::create([
+            $payload = [
                 'title' => $request->title,
                 'picture' => $path,
                 'description' => $request->description,
@@ -111,12 +111,14 @@ class AdminController extends Controller
                 'quantity' => $request->quantity,
                 'category' => $request->category,
                 'discount' => $request->discount,
-            ]);
+            ];
+            if(!$request->quantity) unset($payload['quantity']);
+            MarketProduct::create($payload);
+
         } catch (\Throwable $th) {
             dd($th->getMessage());
         }
-
-        return redirect()->route('products')->with('success', 'Product created successfully.');
+        return redirect()->route('admin.products')->with('success', 'Product created successfully.');
     }
 
     public function edit($id)
@@ -231,27 +233,28 @@ public function createcafeproduct()
 
 public function productstore(Request $request)
 {
-
-    $path = $request->file('image')->store('images', 'public');
-
+    $payload= [
+        'menu_id' => $request->menu_id,
+        'name' => $request->name,
+        'status' => $request->status!==null,
+        'price' => $request->price,
+    ];
+    if($request->image)
+    {
+        $path = $request->file('image')->store('images', 'public');
+        $payload['image'] = $path;
+    }
     try {
-        $created = CafeProduct::create([
-            'menu_id' => $request->menu_id,
-            'name' => $request->name,
-            'status' => $request->status!==null,
-            'image' => $path,
-            'price' => $request->price,
-        ]);
+        $created = CafeProduct::create($payload);
         if($created->count())
         {
-
-            // return back()->with('success', 'Product created successfully!');
             return redirect()->route('admin.cafeproducts')->with('success', 'CafeProduct created successfully.');
         }else {
             return back()->with('error', 'Failed to create the product');
         }
     } catch (\Throwable $th) {
-        dd($th->getMessage());
+        Log::info("Erorr while creating product for o-cafe : ".$th->getMessage());
+        return back()->with('error', 'Failed to create the product');
     }
 
 }
@@ -262,7 +265,7 @@ public function storeMenu(Request $request)
         'name' => 'required|string|max:255',
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
     ]);
-    $path = $request->file('image')->store('images/menus', 'public');
+    $path = $request->file('image')->store('Ocafe/menus', 'public');
     $created = CafeMenu::create([
         'name' => $request->name,
         'image' => $path
@@ -277,7 +280,7 @@ public function storeMenu(Request $request)
 }
 
 public function deleteMenu($id){
-    if(CafeMenu::whereId(id: $id)->delete())
+    if(CafeMenu::whereId($id)->delete())
     {
         return back()->with('success', 'Menu removed successfully!');
     }else {

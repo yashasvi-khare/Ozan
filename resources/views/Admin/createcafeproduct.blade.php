@@ -25,12 +25,14 @@
         </div>
         <div class="mb-3">
             <label for="price" class="form-label"> Price </label>
-            <input type="number" name="price" class="form-control">
+            <input type="text" pattern="^\d+(\.\d+)?$" name="price" class="form-control">
         </div>
+        @if(false)
         <div class="mb-3">
             <label for="stock" class="form-label">Image</label>
             <input type="file" accept="image/*" name="image" class="form-control">
         </div>
+        @endif
         <button type="submit" class="btn btn-success"> Create </button>
     </form>
 

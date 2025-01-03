@@ -23,7 +23,6 @@
                     <th>Menu</th>
                     <th>Status</th>
                     <th>Price</th>
-                    <th>Image</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -34,7 +33,6 @@
                     <td>{{ $product?->menu->name }}</td>
                     <td>{{ $product->status?'Active':'Inactive' }}</td>
                     <td>€ {{ $product->price }}</td>
-                    <td><img src="{{ asset('storage/'.$product->image) }}"  width='100' alt=""></td>
                     <td>
                         <a href="#" class="btn btn-success btn-sm">Edit</a>
                         <a class="btn btn-danger btn-sm" href="{{route('admin.cafeproduct.remove',['id' => $product->id])}}" onclick="return confirm('Are you sure?')">Delete</a>
