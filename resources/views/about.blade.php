@@ -83,8 +83,9 @@
             <div class="ltn__utilize-menu">
                 <ul>
                     <li><a href="{{url('/')}}">Home</a></li>
+                    <li><a href="{{route('shop')}}">Products</a></li>
                     <li><a href="{{route('about')}}">About</a></li>
-                    <li><a href="/ozan-cafe/public">Cafe</a></li>
+                    <li><a href="https://lawngreen-crocodile-174230.hostingersite.com">Cafe</a></li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                 </ul>
             </div>
@@ -124,7 +125,7 @@
             <div class="row">
                 <div class="col-lg-6 align-self-center">
                     <div class="about-us-img-wrap about-img-left">
-                        <img src="{{asset('img/others/6.png')}}" alt="About Us Image">
+                        <img src="{{asset('img/icons/halal.png')}}" alt="About Us Image">
                     </div>
                 </div>
                 <div class="col-lg-6 align-self-center">
@@ -132,11 +133,9 @@
                         <div class="section-title-area ltn__section-title-2">
                             <h6 class="section-subtitle ltn__secondary-color">Know More About Shop</h6>
                             <h1 class="section-title">Trusted Organic <br class="d-none d-md-block">  Food  Store</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore</p>
+                            <p>At OzanMarket, we specialize in fresh fruits and vegetables, grocery items, and premium halal meat.</p>
                         </div>
-                        <p>sellers who aspire to be good, do good, and spread goodness. We
-                                democratic, self-sustaining, two-sided marketplace which thrives
-                                on trust and is built on community and quality content.</p>
+                        <p>Our goal is to serve our community by offering top-notch products that reflect the rich cultures of Turkey, Persia, and India, all while maintaining exceptional customer service.</p>
                         <!-- <div class="about-author-info d-flex">
                             <div class="author-name-designation  align-self-center">
                                 <h4 class="mb-0">Jerry Henson</h4>
@@ -184,7 +183,7 @@
                             <div class="ltn__feature-icon">
                                 <span><img src="{{asset('img/icons/icon-img/22.png')}}" alt="#"></span>
                             </div>
-                            <h3><a href="{{route('service-details')}}">Curated Products</a></h3>
+                            <h3><a href="javascript:void(0)"javascript:void(0)h3>
                         </div>
                         <div class="ltn__feature-info">
                             <p>These handpicked collections focus on quality, uniqueness, and relevance, ensuring customers find the best products.</p>
@@ -263,7 +262,7 @@
                         </div>
                         <div class="team-info">
                             <h6 class="ltn__secondary-color">//  founder  //</h6>
-                            <h4><a href="{{route('team-details')}}">Rosalina D. William</a></h4>
+                            <h4><a href="javascript:void(0)">Rosalina D. William</a></h4>
                             <div class="ltn__social-media">
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -281,7 +280,7 @@
                         </div>
                         <div class="team-info">
                             <h6 class="ltn__secondary-color">//  founder  //</h6>
-                            <h4><a href="{{route('team-details')}}">Rosalina D. William</a></h4>
+                            <h4><a href="javascript:void(0)">Rosalina D. William</a></h4>
                             <div class="ltn__social-media">
                                 <ul>
                                     <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
@@ -294,7 +293,7 @@
                 </div>
             </div>
         </div> -->
-    
+
     <!-- TEAM AREA END -->
 
     <!-- CALL TO ACTION START (call-to-action-5) -->
@@ -361,98 +360,6 @@
             </div>
         </div>
     </div>
-    <!-- PROGRESS BAR AREA END -->
-
-    <!-- FAQ AREA START (faq-2) (ID > accordion_2) -->
-    <div class="ltn__faq-area pt-115 pb-120">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title-area ltn__section-title-2 text-center">
-                        <h1 class="section-title white-color---">Some Questions</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="ltn__faq-inner ltn__faq-inner-2">
-                        <div id="accordion_2">
-                            <!-- card -->
-                            <div class="card">
-                                <h6 class="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-1" aria-expanded="false">
-                                    How to buy a product?
-                                </h6>
-                                <div id="faq-item-2-1" class="collapse" data-parent="#accordion_2">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Proin libero nunc consequat interdum. Condimentum lacinia quis vel eros donec ac.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card -->
-                            <div class="card">
-                                <h6 class="ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-2" aria-expanded="true">
-                                    How can i make refund from your website?
-                                </h6>
-                                <div id="faq-item-2-2" class="collapse show" data-parent="#accordion_2">
-                                    <div class="card-body">
-                                        <div class="ltn__video-img alignleft">
-                                            <img src="img/bg/17.jpg" alt="video popup bg image">
-                                            <a class="ltn__video-icon-2 ltn__video-icon-2-small ltn__video-icon-2-border----" href="https://www.youtube.com/embed/LjCzPp-MK48?autoplay=1&showinfo=0"  data-rel="lightcase:myCollection">
-                                                <i class="fa fa-play"></i>
-                                            </a>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card -->
-                            <div class="card">
-                                <h6 class="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-3" aria-expanded="false">
-                                    I am a new user. How should I start?
-                                </h6>
-                                <div id="faq-item-2-3" class="collapse" data-parent="#accordion_2">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Proin libero nunc consequat interdum. Condimentum lacinia quis vel eros donec ac.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card -->
-                            <div class="card">
-                                <h6 class="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-4" aria-expanded="false">
-                                    Returns and refunds
-                                </h6>
-                                <div id="faq-item-2-4" class="collapse" data-parent="#accordion_2">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Proin libero nunc consequat interdum. Condimentum lacinia quis vel eros donec ac.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- card -->
-                            <div class="card">
-                                <h6 class="collapsed ltn__card-title" data-bs-toggle="collapse" data-bs-target="#faq-item-2-5" aria-expanded="false">
-                                    Are my details secured?
-                                </h6>
-                                <div id="faq-item-2-5" class="collapse" data-parent="#accordion_2">
-                                    <div class="card-body">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Scelerisque eleifend donec pretium vulputate sapien nec sagittis. Proin libero nunc consequat interdum. Condimentum lacinia quis vel eros donec ac. Mauris sit amet massa vitae tortor. Quisque id diam vel quam elementum pulvinar. Gravida in fermentum et sollicitudin ac orci phasellus. Facilisis gravida neque convallis a cras semper. Non arcu risus quis varius quam quisque id.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <aside class="sidebar-area ltn__right-sidebar mt-60">
-                        <!-- Banner Widget -->
-                        <div class="widget ltn__banner-widget">
-                            <a href="{{route('shop')}}"><img src="{{asset('img/bg/12.png')}}" alt="Banner Image"></a>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- FAQ AREA START -->
 
     <!-- FEATURE AREA START ( Feature - 3) -->
     <div class="ltn__feature-area before-bg-bottom-2 mb--30--- plr--5">
