@@ -1527,7 +1527,7 @@ $visible = App\Models\Setting::where('name','price_visibility')->first('value')?
                     <aside class="sidebar ltn__shop-sidebar">
                         <!-- Category Widget -->
                         <div class="widget ltn__menu-widget">
-                            <h4 class="ltn__widget-title ltn__widget-title-border">Product Brand</h4>
+                            <h4 class="ltn__widget-title ltn__widget-title-border">Product By Brand</h4>
                             <ul>
                                 <li><a href="#">Nescafe <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>
                                 <li><a href="#">Coca Cola <span><i class="fas fa-long-arrow-alt-right"></i></span></a></li>

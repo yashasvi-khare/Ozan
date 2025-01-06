@@ -7,6 +7,27 @@
         .product-img img {
             height:270px;
         }
+        .category-name-box{
+            background: white;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 13px;
+            width: 72%;
+            display: inline-block;
+            position: absolute;
+            bottom: 10px;
+            left: 15%;
+            z-index: 999999;
+        }
+        .tile.d-block {
+            background:#d3cece;border-radius:11%;padding:9px 0px;height:161px;width:200px;margin-inline:-30px;position:relative;
+            img {
+                position:absolute;
+                left: 0;
+                width:-webkit-fill-available;
+                height:80%;
+            }
+        }
     </style>
     @php
         $showPrice = App\Models\Setting::where('name','price_visibility')->first('value')?->value;
@@ -220,11 +241,46 @@
                         thik hai kro fir problem pr btatna ok
                         -->
                         <div class="nav">
-                            <a class="active show" data-bs-toggle="tab" href="#liton_tab_3_1">Veggies & Fruits</a>
-                            <a data-bs-toggle="tab" href="#liton_tab_3_2" class="">Non Veg</a>
-                            <a class="" data-bs-toggle="tab" href="#liton_tab_3_3">Indian Grocery</a>
-                            <a data-bs-toggle="tab" href="#liton_tab_3_4" class="">Persian Grocery</a>
-                            <a data-bs-toggle="tab" href="#liton_tab_3_5" class="">Turkish Grocery</a>
+                            <a class="active show" data-bs-toggle="tab" href="#liton_tab_3_1">
+                                <div class="tile d-block" >
+                                    <img src="{{asset('img/slider/23.png')}}" height="70" width="70" alt="">
+                                    <div class="category-name-box">
+                                        <span>Veggies & Fruits</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a data-bs-toggle="tab" href="#liton_tab_3_2" class="">                               
+                                <div class="tile d-block" >
+                                    <img src="{{asset('img/non-veg.png')}}" height="70" width="70" alt="">
+                                    <div class="category-name-box">
+                                        <span>Non Veg</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <a  data-bs-toggle="tab" href="#liton_tab_3_3" class="">
+                            <div class="tile d-block" >
+                                    <img src="{{asset('img/indian.png')}}" height="70" width="70" alt="">
+                                    <div class="category-name-box">
+                                      <span>Indian Grocery</span>
+                                 </div>  
+                                 </div>   
+                            </a>
+                            <a data-bs-toggle="tab" href="#liton_tab_3_4" class="">
+                            <div class="tile d-block" >
+                                    <img src="{{asset('img/persian.png')}}" height="70" width="70" alt="">
+                                    <div class="category-name-box">
+                                        <span>Persian Grocery</span> 
+                                    </div>
+                                </div> 
+                            </a>
+                            <a data-bs-toggle="tab" href="#liton_tab_3_5" class="">
+                            <div class="tile d-block" >
+                                    <img src="{{asset('img/turkish.png')}}" height="70" width="70" alt="">
+                                    <div class="category-name-box">
+                                      <span>Turkish Grocery</span>
+                                    </div>
+                            </div>       
+                            </a>
                         </div>
                     </div>
                     <div class="tab-content"> <!-- jitne buttons upar hain utne neeche DIVs hain
@@ -242,8 +298,9 @@
                         @php
                             $products = new \App\Models\MarketProduct();
                         @endphp
-                        <div class="tab-pane fade active show" id="liton_tab_3_1"> <!-- jaise ye -->
-                            <div class="ltn__product-tab-content-inner">
+                        <div style="display:none">
+                        <div class="tab-pane fade active "  id="liton_tab_3_1"> <!-- jaise ye -->
+                            <div class="ltn__product-tab-content-inner ">
                                 <div class="row ltn__tab-product-slider-one-active slick-arrow-1">
                                     <!-- ltn__product-item itna tej kyu chal raha hai? -->
                                     @foreach($products->where('category','veg')->orderBy('created_at')->get() as $product)
@@ -552,6 +609,7 @@
                                     @endforeach
                                 </div>
                             </div>
+                        </div>
                         </div>
                     </div>
                 </div>
