@@ -20,7 +20,13 @@
             z-index: 999999;
         }
         .tile.d-block {
-            background:#d3cece;border-radius:11%;padding:9px 0px;height:161px;width:200px;margin-inline:-30px;position:relative;
+            background:#d3cece;
+            border-radius:11%;
+            padding:9px 0px;
+            height:300px;
+            width:300px;
+            margin-inline:-30px;
+            position:relative;
             img {
                 position:absolute;
                 left: 0;
@@ -170,13 +176,13 @@
                                 <div class="slide-item-info">
                                     <div class="slide-item-info-inner ltn__slide-animation">
                                         <h6 class="slide-sub-title animated"><img src="img/icons/icon-img/1.png" alt="javascript:void(0)"> 100% genuine Products</h6>
-                                        <h1 class="slide-title animated ">Our Garden's Most <br> Favorite Food</h1>
-                                        <div class="slide-brief animated">
+                                        <h1 class="slide-title animated ">Everyday Fresh <br> Veggies</h1>
+                                        <!-- <div class="slide-brief animated">
                                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
                                         </div>
                                         <div class="btn-wrapper animated">
                                             <a href="{{route('about')}}" class="btn btn-transparent btn-effect-3 text-uppercase">LEARN MORE</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div class="slide-item-img slide-img-left">
@@ -223,12 +229,12 @@
             </div>
         </div>
     </div>
-    <div class="ltn__product-tab-area ltn__product-gutter pt-85 pb-70">
+    <div class="ltn__product-tab-area ltn__product-gutter pt-85 pb-70" id="our-products">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title-area ltn__section-title-2 text-center">
-                        <h1 class="section-title">Our Products</h1>
+                        <h1 class="section-title">Categories</h1>
                     </div>
                     <div class="ltn__tab-menu ltn__tab-menu-2 ltn__tab-menu-top-right-- text-uppercase text-center">
                         <!--
@@ -240,8 +246,9 @@
                         Samajh gyi?hmm
                         thik hai kro fir problem pr btatna ok
                         -->
+
                         <div class="nav">
-                            <a class="active show" data-bs-toggle="tab" href="#liton_tab_3_1">
+                            <a class="active show" href="{{route('shop')}}">
                                 <div class="tile d-block" >
                                     <img src="{{asset('img/slider/23.png')}}" height="70" width="70" alt="">
                                     <div class="category-name-box">
@@ -249,7 +256,7 @@
                                     </div>
                                 </div>
                             </a>
-                            <a data-bs-toggle="tab" href="#liton_tab_3_2" class="">                               
+                            <a href="{{route('shop')}}">
                                 <div class="tile d-block" >
                                     <img src="{{asset('img/non-veg.png')}}" height="70" width="70" alt="">
                                     <div class="category-name-box">
@@ -257,29 +264,29 @@
                                     </div>
                                 </div>
                             </a>
-                            <a  data-bs-toggle="tab" href="#liton_tab_3_3" class="">
+                            <a href="{{route('shop')}}">
                             <div class="tile d-block" >
                                     <img src="{{asset('img/indian.png')}}" height="70" width="70" alt="">
                                     <div class="category-name-box">
                                       <span>Indian Grocery</span>
-                                 </div>  
-                                 </div>   
+                                 </div>
+                                 </div>
                             </a>
-                            <a data-bs-toggle="tab" href="#liton_tab_3_4" class="">
+                            <a href="{{route('shop')}}">
                             <div class="tile d-block" >
                                     <img src="{{asset('img/persian.png')}}" height="70" width="70" alt="">
                                     <div class="category-name-box">
-                                        <span>Persian Grocery</span> 
+                                        <span>Persian Grocery</span>
                                     </div>
-                                </div> 
+                                </div>
                             </a>
-                            <a data-bs-toggle="tab" href="#liton_tab_3_5" class="">
+                            <a href="{{route('shop')}}">
                             <div class="tile d-block" >
                                     <img src="{{asset('img/turkish.png')}}" height="70" width="70" alt="">
                                     <div class="category-name-box">
                                       <span>Turkish Grocery</span>
                                     </div>
-                            </div>       
+                            </div>
                             </a>
                         </div>
                     </div>
@@ -631,7 +638,7 @@
                 <div class="col-lg-7">
                     <div class="call-to-action-inner call-to-action-inner-4 text-color-white--- text-center---">
                         <div class="section-title-area ltn__section-title-2 text-center---">
-                            <h6 class="ltn__secondary-color">Todays Hot Deals</h6>
+                            <h1 class="ltn__secondary-color">Todays Hot Deals</h1>
                             <h1 class="section-title">
                                 {{App\Models\Setting::where('name','hot_deal_text')->first('value')?->value??'Original Stock Honey'}}
                             <br>  Combo Package</h1>

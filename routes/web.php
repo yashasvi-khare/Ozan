@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Models\MarketProduct;
 
 Route::get('/', function () {
     return view('index');
@@ -13,8 +14,13 @@ Route::get('/', function () {
 Route::get('/getIndex', function () {
     return view('index');
 })->name('getIndex');
-Route::get('/shop', function () {
-    return view('shop-left-sidebar');
+Route::get('/shop/{id?}', function ($id=null) {
+    if($id) {
+        $products = MarketProduct::where('brand_id', $id)->get();
+    } else {
+        $products = MarketProduct::all();
+    }
+    return view('shop-left-sidebar', compact('products'));
 })->name('shop');
 Route::view('contact', 'contact')->name('contact');
 // Admin Panel
@@ -47,8 +53,12 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
         Route::get('createproduct', [AdminController::class, 'createproduct'])->name('createproduct');
         Route::post('store-product', [AdminController::class, 'store'])->name('store-product');
         Route::view('createmenu', 'admin.createmenu')->name('createMenu');
+        Route::view('createbrand', 'admin.createBrand')->name('createBrand');
+        Route::view('brands', 'admin.marketBrands')->name('brands');
         Route::post('store-menu', 'storeMenu')->name('storeMenu');
+        Route::post('store-brand', 'storeBrand')->name('storeBrand');
         Route::get('remove-menu/{id}', 'deleteMenu')->name('deleteMenu');
+        Route::get('remove-brand/{id}', 'deletebrand')->name('deletebrand');
         Route::get('createcafeproduct', [AdminController::class, 'createcafeproduct'])->name('createcafeproduct');
         Route::get('remove-cafe-product/{id}', [AdminController::class, 'removeCafeProduct'])->name('cafeproduct.remove');
         Route::post('productstore', [AdminController::class, 'productstore'])->name('productstore');

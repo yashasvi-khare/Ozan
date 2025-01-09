@@ -48,6 +48,14 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{route('admin.brands')}}" aria-expanded="false">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu"> Market Brands</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="{{route('admin.settings')}}" aria-expanded="false">
                         <span>
                             <i class="ti ti-article"></i>

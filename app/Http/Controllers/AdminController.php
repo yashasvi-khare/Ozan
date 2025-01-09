@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\BrandMenu;
 use Illuminate\Http\Request;
 use App\Models\MarketProduct;
 use App\Models\Admin;
@@ -101,15 +102,19 @@ class AdminController extends Controller
         //     'category' => 'required|integer',
         //     'discount' => 'required|integer',
         // ]);
+        if($request->image)
+    {
         $path = $request->file('image')->store($request->category, 'public');
+    }
         try {
             $payload = [
                 'title' => $request->title,
-                'picture' => $path,
+                'picture' => $path??null,
                 'description' => $request->description,
                 'price' => $request->price,
                 'quantity' => $request->quantity,
                 'category' => $request->category,
+                'brand_id' => $request->brand_id,
                 'discount' => $request->discount,
             ];
             if(!$request->quantity) unset($payload['quantity']);
@@ -176,15 +181,15 @@ class AdminController extends Controller
         $product = MarketProduct::findOrFail($id);
 
 
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'price' => 'required|numeric|min:0',
-            'quantity' => 'required|integer|min:1',
-            'category' => 'required|string',
-            'discount' => 'nullable|numeric|min:0|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        // $request->validate([
+        //     'title' => 'required|string|max:255',
+        //     'description' => 'nullable|string',
+        //     'price' => 'required|numeric|min:0',
+        //     'quantity' => 'required|integer|min:1',
+        //     'category' => 'required|string',
+        //     'discount' => 'nullable|numeric|min:0|max:100',
+        //     'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
 
         if ($request->hasFile('image')) {
@@ -192,13 +197,9 @@ class AdminController extends Controller
             $product->picture = $path;
         }
 
-
         $product->update([
             'title' => $request->title,
             'description' => $request->description,
-            'price' => $request->price,
-            'quantity' => $request->quantity,
-            'category' => $request->category,
             'discount' => $request->discount,
         ]);
 
@@ -279,12 +280,40 @@ public function storeMenu(Request $request)
 
 }
 
+public function storeBrand(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
+    $path = $request->file('image')->store('brands', 'public');
+    $created = BrandMenu::create([
+        'name' => $request->name,
+        'image' => $path
+    ]);
+    if($created->count())
+    {
+        return redirect()->route('admin.brands')->with('success', 'Brand created successfully');
+    } else {
+        return back()->with('error','Something went wrong!');
+    }
+
+}
+
 public function deleteMenu($id){
     if(CafeMenu::whereId($id)->delete())
     {
         return back()->with('success', 'Menu removed successfully!');
     }else {
         return back()->with('error', 'Failed to remove the menu!');
+    }
+}
+public function deletebrand($id){
+    if(BrandMenu::whereId($id)->delete())
+    {
+        return back()->with('success', 'Brand removed successfully!');
+    }else {
+        return back()->with('error', 'Failed to remove the brand!');
     }
 }
 
@@ -301,7 +330,7 @@ public function removeCafeProduct($id){
 
 public function editCafeMenus($id)
 {
-    $cafemenu= CafeMenu::findOrFail($id); 
+    $cafemenu= CafeMenu::findOrFail($id);
     return view('admin.editcafemenus', compact('cafemenu'));
 }
 
@@ -329,7 +358,7 @@ public function updateMenu(Request $request, $id)
 
 public function editCafeProduct($id)
 {
-    $cafeproducts= CafeProduct::findOrFail($id); 
+    $cafeproducts= CafeProduct::findOrFail($id);
     return view('admin.editcafeproduct', compact('cafeproducts'));
 }
 

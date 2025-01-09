@@ -3221,13 +3221,13 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     margin-bottom: 0; }
 
 .ltn__widget-title {
-  font-size: 20px;
+  font-size: 23px;
   margin-bottom: 35px;
   text-transform: capitalize; }
 
 .ltn__widget-title-border {
   position: relative;
-  padding-left: 45px; }
+  padding-left: 48px; }
   .ltn__widget-title-border::after, .ltn__widget-title-border::before {
     position: absolute;
     content: "";
@@ -3429,7 +3429,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     margin-top: 10px; }
     .ltn__menu-widget > ul li a {
       display: block;
-      font-size: 14px;
+      font-size: 17px;
       font-weight: 700; }
       .ltn__menu-widget > ul li a span {
         float: right;
