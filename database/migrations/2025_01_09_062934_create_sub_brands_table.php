@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('brandmenu');
-        Schema::create('brand_menu', function (Blueprint $table) {
+        Schema::create('sub_brands', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('brand_id');
             $table->string('name');
             $table->string('image')->nullable();
-            $table->timestamps();
+            $table->string('rating')->nullable();
+            $table->string('discount')->default('0%');
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('brand_menu');
+        Schema::dropIfExists('sub_brands');
     }
 };

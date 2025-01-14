@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\BrandMenu;
+use App\Models\SubBrand;
 use Illuminate\Http\Request;
 use App\Models\MarketProduct;
 use App\Models\Admin;
@@ -283,13 +284,14 @@ public function storeMenu(Request $request)
 public function storeBrand(Request $request)
 {
     $request->validate([
-        'name' => 'required|string|max:255',
-        'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'name' => 'required|string|max:255'
     ]);
-    $path = $request->file('image')->store('brands', 'public');
+    if($request->image) {
+        $path = $request->file('image')->store('brands', 'public');
+    }
     $created = BrandMenu::create([
         'name' => $request->name,
-        'image' => $path
+        'image' => $path?? null
     ]);
     if($created->count())
     {
@@ -300,6 +302,110 @@ public function storeBrand(Request $request)
 
 }
 
+
+public function storeSubBrand(Request $request)
+{
+    // dd($request->all());
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'brand_id' => 'required|string|max:255'
+    ]);
+    if($request->image) {
+        $path = $request->file('image')->store('brands', 'public');
+    }
+    $created = SubBrand::create([
+        'name' => $request->name,
+        'image' => $path?? null,
+        'brand_id' => $request->brand_id,
+        'discount' => $request->discount??'0%'
+    ]);
+    if($created->count())
+    {
+        return redirect()->route('admin.subBrands')->with('success', 'Sub-brand created successfully');
+    } else {
+        return back()->with('error','Something went wrong!');
+    }
+
+}
+
+public function editBrand($id)
+{
+    $brand= BrandMenu::findOrFail($id);
+    return view('admin.editBrand', compact('brand'));
+}
+
+
+public function editSubBrand($id)
+{
+    $subbrand= SubBrand::findOrFail($id);
+    return view('admin.editSubBrand', compact('subbrand'));
+}
+
+
+public function updateBrand(Request $request, $id)
+{
+    try {
+        if($id) {
+            $payload = [
+                'name' => $request->name,
+            ];
+            if( $request->image ) {
+                $path = $request->file('image')->storeAs('brands', 'public');
+                $payload['image'] = $path;
+            }
+            BrandMenu::where('id', $id )->update( $payload );
+
+            return redirect()->route('admin.brands')->with('sucess', 'Brand successfully updated!');
+
+        } else {
+            return back()->with('error', 'Failed to update brand!');
+        }
+    } catch (\Throwable $th) {
+        dd($th->getMessage());
+    }
+}
+
+public function updateSubBrand(Request $request, $id)
+{
+    try {
+        if($id) {
+            $payload = [
+                'name' => $request->name,
+                'discount' => $request->discount??'0%',
+                'brand_id' => $request->brand_id
+            ];
+            if( $request->image ) {
+                $path = $request->file('image')->store('brands', 'public');
+                $payload['image'] = $path;
+            }
+
+            SubBrand::where('id', $id )->update( $payload );
+
+            return redirect()->route('admin.subBrands')->with('sucess', 'Brand successfully updated!');
+
+        } else {
+            return back()->with('error', 'Failed to update brand!');
+        }
+    } catch (\Throwable $th) {
+        dd($th->getMessage());
+    }
+}
+
+public function deletebrand($id){
+    if(BrandMenu::whereId($id)->delete()) {
+        return back()->with('success', 'Brand removed successfully!');
+    }else {
+        return back()->with('error', 'Failed to remove the brand!');
+    }
+}
+public function deleteSubBrand($id){
+    if(SubBrand::whereId($id)->delete()) {
+        return back()->with('success', 'Sub-brand removed successfully!');
+    }else {
+        return back()->with('error', 'Failed to remove sub-brand!');
+    }
+}
+
 public function deleteMenu($id){
     if(CafeMenu::whereId($id)->delete())
     {
@@ -308,26 +414,14 @@ public function deleteMenu($id){
         return back()->with('error', 'Failed to remove the menu!');
     }
 }
-public function deletebrand($id){
-    if(BrandMenu::whereId($id)->delete())
-    {
-        return back()->with('success', 'Brand removed successfully!');
-    }else {
-        return back()->with('error', 'Failed to remove the brand!');
-    }
-}
 
 public function removeCafeProduct($id){
-    if(CafeProduct::whereId($id)->delete())
-    {
+    if(CafeProduct::whereId($id)->delete()) {
         return back()->with('success', 'Menu removed successfully!');
     }else {
         return back()->with('error', 'Failed to remove the menu!');
     }
 }
-
-
-
 public function editCafeMenus($id)
 {
     $cafemenu= CafeMenu::findOrFail($id);
@@ -374,6 +468,57 @@ public function updateProduct(Request $request, $id)
     ]);
 
     return redirect()->route('admin.cafeproducts')->with('success', 'Products updated successfully.');
+}
+
+
+public function updateHotDeals(Request $request) {
+    $data = $request->all();
+    unset($data['_token']);
+    try {
+        $final= [];
+        $texts = [];
+
+        foreach($data as $key => $row ){
+            if(str_contains($key, 'text')) {
+                $texts[] = $key;
+            }
+        }
+
+        foreach($texts as $name) {
+
+            $imageName = explode('text_', $name)[1];
+            $imageName = "image_$imageName";
+            $image = $data[$imageName];
+            $diary=[];
+            if (is_string($image)) {
+                $diary['image'] = $image;
+            } else {
+                $path = $row->store('deals', 'public');
+                $diary['image'] = $path;
+            }
+            $final[] = [
+                'text' => $data[$name],
+                'image' => $diary['image']
+            ];
+        }
+
+        Setting::where('name','hot_deals')->delete();
+        Setting::insert([
+            'name' => 'hot_deals',
+            'value' => json_encode($final)
+        ]);
+        return response()->json([
+            'status' => true,
+            'message' => 'Hot deals updated!'
+        ]);
+
+   } catch (\Throwable $th) {
+        Log::info($th->getMessage(), $th->getTrace());
+        return response()->json([
+            'status' => false,
+            'message' => 'Something went wrong!'
+        ]);
+   }
 }
 }
 

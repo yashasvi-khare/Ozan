@@ -1,11 +1,6 @@
 
 <style>
-    .site-logo img
-
-    {
-        padding-top: 30px;
-        left:-20%
-    }
+    .site-logo img{ padding-top: 30px;}
 </style>
 <!-- HEADER AREA START (header-5) -->
 <header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4---">
@@ -102,3 +97,10 @@
     <!-- ltn__header-middle-area end -->
 </header>
 <!-- HEADER AREA END -->
+<style>
+    .sticky-active .site-logo img {
+        padding-top: 0;
+        left: 0;
+        height: 200px;
+    }
+</style>

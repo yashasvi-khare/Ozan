@@ -17,7 +17,7 @@
             position: absolute;
             bottom: 10px;
             left: 15%;
-            z-index: 999999;
+            z-index:1;
         }
         .tile.d-block {
             background:#d3cece;
@@ -37,6 +37,8 @@
     </style>
     @php
         $showPrice = App\Models\Setting::where('name','price_visibility')->first('value')?->value;
+        $hotDeals = App\Models\Setting::where('name','hot_deals')->first('value')?->value??'[]';
+        $hotDeals = json_decode($hotDeals);
     @endphp
 
     <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
@@ -624,32 +626,36 @@
         </div>
     </div>
     <!-- PRODUCT TAB AREA END -->
-
-    <!-- COUNTDOWN AREA START -->
-    <div class="ltn__call-to-action-area ltn__call-to-action-4 section-bg-1 pt-110 pb-120">
-        <div class="container">
-            <div class="row">
-                @php
-                $dealImg = App\Models\Setting::where('name','hot_deal_img')->first('value')?->value;
-                @endphp
-                <div class="col-lg-5">
-                    <img src="{{$dealImg? asset('storage/'.$dealImg) : 'img/banner/11.png'}}" alt="javascript:void(0)">
-                </div>
-                <div class="col-lg-7">
-                    <div class="call-to-action-inner call-to-action-inner-4 text-color-white--- text-center---">
-                        <div class="section-title-area ltn__section-title-2 text-center---">
-                            <h1 class="ltn__secondary-color">Todays Hot Deals</h1>
-                            <h1 class="section-title">
-                                {{App\Models\Setting::where('name','hot_deal_text')->first('value')?->value??'Original Stock Honey'}}
-                            <br>  Combo Package</h1>
+    @if(count($hotDeals))
+    <div class="ltn__slider-area ltn__slider-3  section-bg-1">
+        <div class="ltn__slide-second-active slick-slide-arrow-1 slick-slide-dots-1">
+            @foreach ($hotDeals as $deal)
+                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3">
+                    <div class="ltn__slide-item-inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-5">
+                                    <img src="{{asset('storage/'.$deal->image)}}" alt="javascript:void(0)">
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="call-to-action-inner call-to-action-inner-4 text-color-white--- text-center---">
+                                        <div class="section-title-area ltn__section-title-2 text-center---">
+                                            <h1 class="ltn__secondary-color">Todays Hot Deals</h1>
+                                            <h1 class="section-title">
+                                                {{$deal->text}}
+                                            </h1>
+                                        </div>
+                                        <div class="ltn__countdown ltn__countdown-3 bg-white--" data-countdown="2025/01/01"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="ltn__countdown ltn__countdown-3 bg-white--" data-countdown="2024/12/28"></div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </div>
-    <!-- COUNTDOWN AREA END -->
+    @endif
 
     <!-- PRODUCT AREA START (product-item-3) -->
     <div class="ltn__product-area ltn__product-gutter pt-115 pb-70">
@@ -875,7 +881,6 @@
     </div>
     <!-- VIDEO AREA END -->
 
-    <!-- TESTIMONIAL AREA START (testimonial-4) -->
     <div class="ltn__testimonial-area section-bg-1 pt-290 pb-70 d-none">
         <div class="container-fluid">
             <div class="row">
@@ -962,13 +967,10 @@
                         </div>
                     </div>
                 </div>
-                <!--  -->
             </div>
         </div>
     </div>
-    <!-- TESTIMONIAL AREA END -->
 
-    <!-- BLOG AREA START (blog-3) -->
     <div class="ltn__blog-area pt-115 pb-70 d-none">
         <div class="container">
             <div class="row">
@@ -979,7 +981,6 @@
                 </div>
             </div>
             <div class="row  ltn__blog-slider-one-active slick-arrow-1 ltn__blog-item-3-normal">
-                <!-- Blog Item -->
                 <div class="col-lg-12">
                     <div class="ltn__blog-item ltn__blog-item-3">
                         <div class="ltn__blog-img">
@@ -1010,7 +1011,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
                 <div class="col-lg-12">
                     <div class="ltn__blog-item ltn__blog-item-3">
                         <div class="ltn__blog-img">
@@ -1041,7 +1041,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
                 <div class="col-lg-12">
                     <div class="ltn__blog-item ltn__blog-item-3">
                         <div class="ltn__blog-img">
@@ -1072,7 +1071,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
                 <div class="col-lg-12">
                     <div class="ltn__blog-item ltn__blog-item-3">
                         <div class="ltn__blog-img">
@@ -1103,7 +1101,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Blog Item -->
                 <div class="col-lg-12">
                     <div class="ltn__blog-item ltn__blog-item-3">
                         <div class="ltn__blog-img">
@@ -1134,13 +1131,10 @@
                         </div>
                     </div>
                 </div>
-                <!--  -->
             </div>
         </div>
     </div>
-    <!-- BLOG AREA END -->
 
-    <!-- FEATURE AREA START ( Feature - 3) -->
     <div class="ltn__feature-area before-bg-bottom-2 mb--30--- plr--5">
         <div class="container-fluid">
             <div class="row">
@@ -1149,6 +1143,5 @@
             </div>
         </div>
     </div>
-    <!-- FEATURE AREA END -->
 
     @endsection

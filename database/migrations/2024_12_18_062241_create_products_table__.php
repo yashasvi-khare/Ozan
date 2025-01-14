@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('picture');
             $table->string('price');
             $table->string('category')->nullable();
+            $table->bigInteger('brand_id');
+            $table->bigInteger('sub_brand_id')->nullable();
             $table->integer('quantity')->default(50);
             $table->string('discount')->default(0);
             $table->timestamps();

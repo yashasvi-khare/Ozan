@@ -54,9 +54,17 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
         Route::post('store-product', [AdminController::class, 'store'])->name('store-product');
         Route::view('createmenu', 'admin.createmenu')->name('createMenu');
         Route::view('createbrand', 'admin.createBrand')->name('createBrand');
+        Route::view('create-sub-brand', 'admin.createSubBrand')->name('createSubBrand');
         Route::view('brands', 'admin.marketBrands')->name('brands');
+        Route::view('sub-brands', 'admin.subBrands')->name('subBrands');
         Route::post('store-menu', 'storeMenu')->name('storeMenu');
         Route::post('store-brand', 'storeBrand')->name('storeBrand');
+        Route::post('store-sub-brand', 'storeSubBrand')->name('storeSubBrand');
+        Route::get('edit-brand/{id}', 'editBrand')->name('editBrand');
+        Route::get('edit-sub-brand/{id}', 'editSubBrand')->name('editSubBrand');
+        Route::post('update-brand/{id}', 'updateBrand')->name('updateBrand');
+        Route::post('update-sub-brand/{id}', 'updateSubBrand')->name('updateSubBrand');
+        Route::get('remove-sub-brand/{id}', 'deleteSubBrand')->name('deleteSubBrand');
         Route::get('remove-menu/{id}', 'deleteMenu')->name('deleteMenu');
         Route::get('remove-brand/{id}', 'deletebrand')->name('deletebrand');
         Route::get('createcafeproduct', [AdminController::class, 'createcafeproduct'])->name('createcafeproduct');
@@ -70,6 +78,7 @@ Route::group(['prefix'=> 'admin', 'as'=>'admin.'], function(){
         Route::post('/import-cafe-product', [ProductsController::class, 'cafeimport'])->name('cafeproducts.import');
         Route::post('/update-settings/{id}', [AdminController::class, 'updateSettings']);
         Route::get('admin-edit', [AdminController::class, 'admin-edit'])->name('admin-edit');
+        Route::post('update-hot-deals', [AdminController::class, 'updateHotDeals'])->name('updateHotDeals');
     });
     Route::get('cafemenus', [AdminController::class, 'cafemenus'])->name('cafemenus');
 });

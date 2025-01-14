@@ -26,7 +26,7 @@ $brands=App\Models\BrandMenu::all()
                     <td>{{ $brand->name }}</td>
                     <td><img src="{{ asset('storage/'.$brand->image) }}"  width='100' alt=""></td>
                     <td>
-                    <a href="#" class="btn btn-success btn-sm">Edit</a>
+                    <a href="{{route('admin.editBrand',['id' => $brand->id ])}}" class="btn btn-success btn-sm">Edit</a>
                     <a class="btn btn-danger btn-sm" href="{{route('admin.deletebrand',['id'=>$brand->id])}}" onclick="return confirm('Are you sure?')">Delete</a>
                     </td>
                 </tr>

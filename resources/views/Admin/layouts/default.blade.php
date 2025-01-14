@@ -14,29 +14,42 @@
 </head>
 
 <body>
-  <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
     @include('admin.layouts.sidebar')
     <div class="body-wrapper">
-      <!--  Header Start -->
       @include('admin.layouts.header')
-      <!--  Header End -->
-      <div class="container-fluid">
-        @yield('content')
-      </div>
+        <div class="container-fluid">
+            <div id="messageBox">
+
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong> Success!</strong> {{ session('success') }}
+                    <button type="button" class="btn btn-close btn-sm" data-dismiss="alert" aria-label="Close">
+
+                    </button>
+                    </div>
+                @endif
+
+                @if (session('error'))
+                    <div class="alert alert-error alert-dismissible fade show" role="alert">
+                    <strong> Error!</strong> {{ session('error') }}
+                    <button type="button" class="btn btn-close btn-sm" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                    </div>
+                @endif
+
+            </div>
+            @yield('content')
+        </div>
     </div>
   </div>
   <script src="{{asset('Admin/libs/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{asset('Admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('Admin/js/sidebarmenu.js')}}"></script>
   <script src="{{asset('Admin/js/app.min.js')}}"></script>
-  <script src="{{asset('Admin/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
   <script src="{{asset('Admin/libs/simplebar/dist/simplebar.js')}}"></script>
-  <script src="{{asset('Admin/js/dashboard.js')}}"></script>
 </body>
 
 </html>

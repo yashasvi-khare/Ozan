@@ -12722,6 +12722,7 @@ input.cart-plus-minus-box {
   [type="submit"].btn {
     padding: 12px 30px; } }
 
+.ltn__product-item .product-img a img {height:230px;}
 /* ----------------------------------------------------
     END
 ---------------------------------------------------- */
